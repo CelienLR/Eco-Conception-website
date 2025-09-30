@@ -125,7 +125,6 @@ Pour les remplacer par vos données réelles :
 
 ## 📝 Remarques importantes
 
-- **Données fictives** : Les résultats d'audit sont des exemples à remplacer
 - **Site analysé** : https://www.cholet.fr/welcome/
 - **Navigation** : Menu responsive (mobile-friendly)
 - **Accessibilité** : Structure sémantique HTML5
@@ -148,6 +147,3 @@ Pour toute question sur le projet, consulter :
 - Documentation React : https://react.dev/
 - Documentation React Router : https://reactrouter.com/
 
----
-
-**Bon travail ! 🚀**
