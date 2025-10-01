@@ -384,6 +384,117 @@ const WAVE = () => {
       </div>
 
       <div className="section">
+        <h2>📊 Rapport de synthèse WAVE</h2>
+        
+        <div className="card" style={{ backgroundColor: '#f0f9ff', border: '2px solid var(--info-color)' }}>
+          <h3 style={{ color: 'var(--info-color)', marginTop: 0 }}>
+            📝 Synthèse de l'audit d'accessibilité WAVE - cholet.fr
+          </h3>
+          
+          <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
+            <h4 style={{ marginTop: 0 }}>🔴 Problèmes majeurs identifiés</h4>
+            <div className="grid grid-3" style={{ gap: '1rem' }}>
+              <div style={{ textAlign: 'center', padding: '1rem', backgroundColor: '#fee2e2', borderRadius: '6px' }}>
+                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--error-color)' }}>9</div>
+                <div style={{ fontSize: '0.9rem', color: '#64748b' }}>Erreurs critiques</div>
+              </div>
+              <div style={{ textAlign: 'center', padding: '1rem', backgroundColor: '#fef3c7', borderRadius: '6px' }}>
+                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--warning-color)' }}>19</div>
+                <div style={{ fontSize: '0.9rem', color: '#64748b' }}>Alertes</div>
+              </div>
+              <div style={{ textAlign: 'center', padding: '1rem', backgroundColor: '#dbeafe', borderRadius: '6px' }}>
+                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--info-color)' }}>58</div>
+                <div style={{ fontSize: '0.9rem', color: '#64748b' }}>Fonctionnalités</div>
+              </div>
+            </div>
+            
+            <div style={{ marginTop: '1rem' }}>
+              <p><strong>Top 3 des erreurs critiques :</strong></p>
+              <ol style={{ marginBottom: 0 }}>
+                <li><strong>1 champ de formulaire sans label</strong> - Impact : Critique pour lecteurs d'écran</li>
+                <li><strong>3 boutons vides</strong> - Impact : Navigation impossible sans contexte visuel</li>
+                <li><strong>5 problèmes ARIA</strong> - Impact : Menus de navigation confus</li>
+              </ol>
+            </div>
+          </div>
+
+          <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
+            <h4 style={{ marginTop: 0 }}>✅ Corrections prioritaires</h4>
+            <table style={{ width: '100%', fontSize: '0.9rem' }}>
+              <thead>
+                <tr style={{ backgroundColor: '#f9fafb' }}>
+                  <th style={{ textAlign: 'left', padding: '0.5rem' }}>Priorité</th>
+                  <th style={{ textAlign: 'left', padding: '0.5rem' }}>Problème</th>
+                  <th style={{ textAlign: 'left', padding: '0.5rem' }}>Solution</th>
+                  <th style={{ textAlign: 'center', padding: '0.5rem' }}>Temps</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style={{ padding: '0.5rem' }}><span className="badge badge-error">P1</span></td>
+                  <td style={{ padding: '0.5rem' }}>Champ formulaire sans label</td>
+                  <td style={{ padding: '0.5rem' }}>Ajouter &lt;label for="search"&gt;</td>
+                  <td style={{ textAlign: 'center', padding: '0.5rem' }}>15 min</td>
+                </tr>
+                <tr style={{ backgroundColor: '#f9fafb' }}>
+                  <td style={{ padding: '0.5rem' }}><span className="badge badge-error">P1</span></td>
+                  <td style={{ padding: '0.5rem' }}>Boutons vides (3)</td>
+                  <td style={{ padding: '0.5rem' }}>Ajouter aria-label descriptifs</td>
+                  <td style={{ textAlign: 'center', padding: '0.5rem' }}>30 min</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '0.5rem' }}><span className="badge badge-warning">P2</span></td>
+                  <td style={{ padding: '0.5rem' }}>Menus ARIA défectueux (5)</td>
+                  <td style={{ padding: '0.5rem' }}>Corriger rôles et états ARIA</td>
+                  <td style={{ textAlign: 'center', padding: '0.5rem' }}>2h</td>
+                </tr>
+                <tr style={{ backgroundColor: '#f9fafb' }}>
+                  <td style={{ padding: '0.5rem' }}><span className="badge badge-warning">P2</span></td>
+                  <td style={{ padding: '0.5rem' }}>Texte très petit (1)</td>
+                  <td style={{ padding: '0.5rem' }}>Augmenter taille à 12px min</td>
+                  <td style={{ textAlign: 'center', padding: '0.5rem' }}>10 min</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style={{ marginTop: '1rem', marginBottom: 0, fontSize: '0.85rem', color: '#64748b' }}>
+              <strong>Temps total estimé :</strong> 3 heures pour corriger toutes les erreurs critiques
+            </p>
+          </div>
+
+          <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
+            <h4 style={{ marginTop: 0 }}>⚠️ Limites de l'outil WAVE</h4>
+            <ul style={{ marginBottom: 0, fontSize: '0.9rem' }}>
+              <li><strong>Détection automatique uniquement</strong> : ~70% des problèmes détectés, 30% nécessitent un audit manuel</li>
+              <li><strong>Pas de test utilisateur</strong> : Ne remplace pas les tests avec personnes en situation de handicap</li>
+              <li><strong>Analyse d'une page à la fois</strong> : Nécessite de tester plusieurs pages représentatives</li>
+              <li><strong>Contexte manquant</strong> : Certaines alertes peuvent être des faux positifs selon le contexte</li>
+            </ul>
+          </div>
+
+          <div style={{ backgroundColor: '#dcfce7', padding: '1rem', borderRadius: '8px', marginTop: '1rem', border: '1px solid var(--primary-color)' }}>
+            <h4 style={{ marginTop: 0, color: 'var(--primary-color)' }}>🎯 Recommandation finale</h4>
+            <p style={{ marginBottom: 0 }}>
+              Corriger en priorité les <strong>9 erreurs critiques</strong> identifiées par WAVE (temps estimé : 3h).
+              Puis, réaliser un <strong>audit RGAA complet</strong> pour évaluer la conformité selon le référentiel officiel
+              et tester manuellement avec un lecteur d'écran (NVDA ou JAWS). Objectif : atteindre <strong>100% de conformité
+              niveau AA</strong> d'ici 3 mois.
+            </p>
+          </div>
+        </div>
+
+        <div className="alert alert-info" style={{ marginTop: '1.5rem' }}>
+          <h4 style={{ marginTop: 0 }}>📸 Captures d'écran annotées</h4>
+          <p><strong>Note :</strong> Dans un contexte réel, vous ajouteriez ici des captures d'écran de WAVE montrant :</p>
+          <ul style={{ marginBottom: 0 }}>
+            <li>La vue d'ensemble des erreurs détectées (icônes rouges/orange/vertes)</li>
+            <li>Le détail d'une erreur critique avec explication contextuelle</li>
+            <li>Les recommandations de correction pour chaque type d'erreur</li>
+            <li>La comparaison avant/après correction</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="section">
         <h2>Recommandations pour aller plus loin</h2>
         
         <div className="highlight-box">

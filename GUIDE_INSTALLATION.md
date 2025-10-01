@@ -59,7 +59,6 @@ ecoconception-tp/
 │   │   ├── Home.js            # Page d'accueil
 │   │   ├── ToolsComparison.js # Comparaison d'outils
 │   │   ├── WebsiteCarbon.js   # Website Carbon Calculator
-│   │   ├── EnvironmentalAudit.js # Audit environnemental
 │   │   ├── RGESN.js           # Application du RGESN
 │   │   ├── WAVE.js            # Audit WAVE
 │   │   ├── RGAA.js            # Conformité RGAA
@@ -79,10 +78,9 @@ Le site présente les résultats complets du TP Écoconception Web :
 1. **Accueil** - Introduction et contexte
 2. **Comparaison d'outils** - Analyse de 5 outils avec tableau et radar
 3. **Website Carbon Calculator** - Décryptage technique
-4. **Audit environnemental** - Diagnostic de cholet.fr
-5. **RGESN** - Application du référentiel
-6. **WAVE** - Audit d'accessibilité
-7. **RGAA** - Conformité et recommandations
+4. **RGESN** - Application du référentiel
+5. **WAVE** - Audit d'accessibilité
+6. **RGAA** - Conformité et recommandations
 8. **Conclusion** - Synthèse et checklists
 
 ## 🎨 Personnalisation
@@ -105,7 +103,7 @@ Le site présente les résultats complets du TP Écoconception Web :
 Les données fictives sont intégrées directement dans les composants de page.
 Pour les remplacer par vos données réelles :
 
-1. Ouvrir le fichier de la page concernée (ex: `src/pages/EnvironmentalAudit.js`)
+1. Ouvrir le fichier de la page concernée (ex: `src/pages/WebsiteCarbon.js`)
 2. Modifier les objets de données (tableaux, constantes)
 3. Sauvegarder - le site se recharge automatiquement
 

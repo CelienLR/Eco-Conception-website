@@ -1,0 +1,804 @@
+Vincent Courboulay
+
+Ecoconception WEB
+
+Introduction
+Contexte et enjeux
+À l’ère du numérique omniprésent, les services et applications que nous concevons ont un impact
+environnemental et social croissant. Selon l’ADEME, le numérique représente aujourd’hui 4 % des
+émissions mondiales de gaz à effet de serre, un chiffre en constante augmentation. Parallèlement, 15 %
+de la population mondiale vit avec un handicap, et l’accessibilité numérique reste un défi majeur pour
+garantir une inclusion sociale effective.
+Dans ce contexte, l’écoconception et l’accessibilité ne sont plus des options, mais des obligations légales,
+éthiques et stratégiques. Que ce soit pour répondre aux exigences du RGESN (Référentiel Général
+d’Écoconception des Services Numériques) ou du RGAA (Référentiel Général d’Amélioration de
+l’Accessibilité), ou pour anticiper les attentes des utilisateurs et des clients, intégrer ces démarches dès la
+conception d’un projet numérique est devenu indispensable.
+
+Objectifs du TP
+Ce TP a pour but de vous préparer à écoconcevoir un projet de développement pendant votre SAE, en
+intégrant systématiquement les bonnes pratiques environnementales et sociales. À l’issue de ces séances,
+vous serez capables de :
+•
+
+Comprendre les enjeux du numérique responsable et les cadres réglementaires (RGESN, RGAA).
+
+•
+
+Utiliser des outils d’audit pour mesurer l’impact environnemental et l’accessibilité d’un service
+numérique.
+
+•
+
+Intégrer l’écoconception à chaque étape de votre projet : cadrage, design, développement, tests
+et livraison.
+
+•
+
+Rédiger un plan d’action et documenter vos choix pour justifier vos démarches auprès de décideurs
+ou de clients.
+
+•
+
+Développer un projet sobre, performant et accessible, en appliquant les checklists et
+méthodologies proposées.
+
+Déroulé et méthodologie
+Ce TP s’articule autour de trois piliers :
+1. L’écoconception environnementale : réduire l’empreinte carbone et les ressources consommées
+par votre projet.
+2. L’accessibilité et l’inclusion sociale : garantir que votre service soit utilisable par tous, y compris les
+personnes en situation de handicap.
+3. L’intégration pratique : appliquer ces principes tout au long du cycle de vie de votre projet, via des
+checklists, des audits réguliers et une documentation rigoureuse.
+Vous allez expérimenter des outils comme WebSiteCarbon, WAVE ou Lighthouse, et vous approprier des
+référentiels officiels (RGESN, RGAA). Vous repartirez avec une méthodologie clé en main pour concevoir
+des projets numériques responsables, ainsi qu’une boîte à outils pour auditer, optimiser et communiquer
+sur vos démarches.
+
+1/
+15
+
+07/05/2024
+
+Vincent Courboulay
+
+Ecoconception WEB
+
+Pourquoi ce TP est-il important?
+•
+
+Pour votre futur professionnel : Les compétences en écoconception et accessibilité sont de plus en
+plus recherchées, que ce soit en agence, en entreprise ou en freelance.
+
+•
+
+Pour vos projets personnels : Appliquer ces bonnes pratiques vous permettra de créer des services
+plus performants, moins coûteux en ressources, et accessibles à un public plus large.
+
+•
+
+Pour répondre aux attentes sociétales : Les utilisateurs et les clients sont de plus en plus sensibles
+aux enjeux de responsabilité numérique. Savoir intégrer ces dimensions vous donnera un avantage
+concurrentiel.
+
+Ce TP est conçu pour être concret, pratique et applicable immédiatement à votre projet de
+développement. Vous allez non seulement apprendre à écoconcevoir, mais aussi à documenter, justifier et
+valoriser vos efforts — des compétences essentielles pour tout développeur ou chef de projet responsable.
+À la fin de ce TP, vous disposerez des éléments pour développer un projet exemplaire en matière de
+numérique responsable, que vous pourrez présenter avec fierté dans votre portfolio ou à vos futurs
+employeurs.
+Bon travail, et n’oubliez pas : chaque ligne de code compte pour un numérique plus durable et inclusif !
+
+2/
+15
+
+07/05/2024
+
+Vincent Courboulay
+
+Ecoconception WEB
+
+Table des matières
+Introduction ..................................................................................................................................................... 1
+Contexte et enjeux ...................................................................................................................................... 1
+Objectifs du TP ............................................................................................................................................ 1
+Déroulé et méthodologie ............................................................................................................................ 1
+Pourquoi ce TP est-il important?................................................................................................................. 2
+TP 1 : Audit initial ............................................................................................................................................. 4
+Comparaison d’outils .................................................................................................................................. 4
+Décryptage technique et pédagogique de Website Carbon Calculator ...................................................... 5
+Application du RGESN : audit et amélioration d’un service numérique ..................................................... 7
+Principes de l’accessibilité web ........................................................................................................................ 8
+Découverte de l’accessibilité numérique : audit et correction avec WAVE ................................................ 9
+Audit et conformité au RGAA (Référentiel Général d’Amélioration de l’Accessibilité) ............................ 10
+Conclusion ..................................................................................................................................................... 11
+Guide d’écoconception pour un projet de développement (SAE) ................................................................ 12
+Organisation et planning type ................................................................................................................... 12
+
+3/
+15
+
+07/05/2024
+
+Vincent Courboulay
+
+Ecoconception WEB
+
+TP 1 : Audit initial
+Comparaison d’outils
+L’écoconception est une démarche essentielle pour réduire l’impact environnemental des produits et
+services numériques. De nombreux outils en ligne permettent d’évaluer et d’améliorer l’empreinte
+écologique d’un site web, d’une application ou d’un service. Votre mission est de tester, analyser et
+comparer plusieurs de ces outils Une série d’outils est disponible ici : https://sustainableit-tools.isiteurope.org/.
+Objectifs :
+• Découvrir et manipuler des outils en ligne d’écoconception.
+• Comparer leurs fonctionnalités, leur facilité d’utilisation et leur pertinence.
+• Restituer les résultats sous forme de tableau synthétique et de radar.
+Consignes :
+1. Sélection des outils : Choisissez 5 outils en ligne parmi la liste suivante (ou proposez-en d’autres
+après validation) :
+o Website Carbon Calculator
+o EcoIndex
+o Scaphandre
+o Lighthouse
+o Autres (à valider)
+2. Test des outils : Pour chaque outil, testez-le sur un même site web. Notez vos observations selon
+les critères du tableau de comparaison ci-dessous.
+3. Tableau de comparaison : Remplissez le tableau suivant pour chaque outil testé.
+4. Représentation radar : À partir des notes attribuées dans le tableau, réalisez un graphique radar
+pour visualiser les forces et faiblesses de chaque outil.
+5. Analyse et conclusion : Rédigez une synthèse comparant les outils, en mettant en avant leurs points
+forts, leurs limites, et celui que vous recommanderiez en fonction de différents besoins (simplicité,
+précision, fonctionnalités avancées, etc.).
+Critère
+
+Outil
+1
+
+Outil
+2
+
+Outil
+3
+
+Outil
+4
+
+Outil
+5
+
+Nom de l’outil
+URL
+Gratuité (Oui/Non)
+Facilité d’utilisation (1-5)
+Précision des résultats (1-5)
+Critères évalués (ex : poids des pages, requêtes HTTP,
+énergie, CO₂, etc.)
+Possibilité d’export des résultats (Oui/Non)
+Documentation/Guide disponible (Oui/Non)
+Intégration possible (API, plugin, etc.) (Oui/Non)
+Originalité/Points forts
+AUTRES …
+Limites/Points faibles
+Note globale (1-5)
+Livrables attendus :
+• Tableau de comparaison rempli.
+• Graphique radar (réalisé avec Excel, LibreOffice, ou un outil en ligne comme Canva).
+• Synthèse écrite (1 page max).
+Pour aller plus loin, vous pouvez demander aux étudiants de proposer une amélioration pour l’un des outils,
+ou de créer un mini-guide d’utilisation pour l’outil qu’ils recommandent.
+4/
+15
+
+07/05/2024
+
+Vincent Courboulay
+
+Ecoconception WEB
+
+Décryptage technique et pédagogique de Website Carbon Calculator
+L’outil Website Carbon Calculator permet d’estimer l’empreinte carbone d’un site web à chaque visite. Il
+est largement utilisé pour sensibiliser à l’impact environnemental du numérique. Votre mission est d’en
+expliquer le fonctionnement de manière claire, technique et pédagogique, comme si vous deviez
+l’enseigner à un public non expert.
+Consignes :
+1. Présentation générale :
+a. Présentez brièvement l’outil (objectif, créateurs, public cible).
+b. Expliquez en une phrase pourquoi il est utile dans une démarche d’écoconception.
+2. Fonctionnement technique : Rédigez une explication structurée et illustrée (schémas, captures
+d’écran, exemples) répondant aux questions suivantes :
+a. Quels données l’outil analyse-t-il ?
+b. Comment calcule-t-il l’empreinte carbone ? (Détaillez la méthode de calcul)
+c. D’où proviennent les données utilisées ?
+d. Quels sont les résultats fournis ?
+3. Exemple pratique :
+a. Testez l’outil sur un site de votre choix.
+b. Capturez les résultats et commentez chaque indicateur.
+c. Expliquez comment interpréter ces résultats.
+4. Limites et biais :
+a. Quelles sont les limites de cet outil ?
+b. Quels éléments ne sont pas pris en compte dans le calcul ?
+c. Peut-on lui faire confiance ? Pourquoi ?
+5. Application pédagogique :
+a. Proposez une fiche mémo ou un schéma récapitulatif expliquant le fonctionnement de
+l’outil.
+b. Imaginez une question fréquente d’un utilisateur novice et rédigez une réponse claire.
+6. Bonus (optionnel) :
+a. Comparez brièvement Website Carbon Calculator avec un autre outil d’écoconception (ex
+: EcoIndex).
+o Proposez une amélioration possible pour rendre l’outil plus précis ou plus pédagogique.
+Livrables attendus :
+• Un document structuré (PDF, présentation, ou page web) contenant :
+o Une introduction contextuelle.
+o Une explication technique détaillée et illustrée.
+o Un exemple commenté.
+o Une fiche mémo ou un schéma synthétique.
+o Une conclusion avec les forces et limites de l’outil.
+
+5/
+15
+
+
+07/05/2024
+
+Vincent Courboulay
+
+Ecoconception WEB
+
+Application du RGESN : audit et amélioration d’un service numérique
+Le Référentiel Général d’Écoconception des Services Numériques (RGESN) est un document officiel
+français qui définit 79 bonnes pratiques pour réduire l’impact environnemental des services numériques.
+Votre mission est de découvrir, analyser et appliquer ce référentiel à un service numérique existant (site
+web, application mobile, logiciel, etc.), puis de proposer un plan d’action pour le rendre plus sobre et
+responsable.
+Consignes :
+1. Découverte du RGESN
+• Lisez attentivement la structure du RGESN (version en vigueur) et son
+histoire/contexte/responsable.
+• Identifiez les familles de bonnes pratiques.
+• Sélectionnez 5 critères qui vous semblent les plus pertinents pour un service numérique grand
+public pour lequel vous n’avez accès qu’au front. Justifiez.
+2. Audit selon le RGESN
+• Pour chaque critère sélectionné, évaluez si le service respecte ou non la bonne pratique.
+• Utilisez des outils d’audit vu précédemment pour étayer votre analyse.
+• Présentez vos résultats sous forme de tableau :
+Famille
+RGESN
+
+Critère sélectionné
+(ex : « Limiter le
+poids des pages »)
+
+Respecté ?
+(Oui/Non/Partiellement)
+
+Preuves/Observations Outils
+utilisés
+pour
+vérifier
+
+etc.
+4. Analyse et recommandations
+• Identifiez les 3 critères les moins respectés.
+• Pour chacun, proposez une solution concrète pour se conformer au RGESN, en précisant :
+o L’action à mener (ex : « Mettre en place un CDN pour réduire les requêtes »).
+o Les acteurs concernés (ex : chef de projet, développeur, designer).
+o Les gains attendus (ex : « -20% de données transférées »).
+o Les freins possibles (ex : coût, temps, résistance au changement).
+5. Plan d’action priorisé
+• Classez vos recommandations par ordre de priorité (facilité de mise en œuvre, impact
+environnemental, coût).
+• Proposez un échéancier réaliste (qui fait quoi, quand, avec quels moyens).
+6. Synthèse et argumentaire
+•
+•
+
+Proposez une fiche mémo ou un schéma pour résumer les étapes clés d’un audit RGESN.
+Rédigez une note de synthèse à destination de la direction du service, expliquant :
+o Pourquoi il est important de se conformer au RGESN.
+o Quels bénéfices (environnementaux, économiques, image) peuvent être attendus.
+o Comment convaincre les parties prenantes de s’engager dans cette démarche.
+
+7/
+15
+
+07/05/2024
+
+Vincent Courboulay
+
+Ecoconception WEB
+
+Principes de l’accessibilité web
+Les principes de l'accessibilité du web visent à rendre les sites et applications web utilisables par tous, y
+compris les personnes en situation de handicap. Cela inclut des pratiques telles que la création d'interfaces
+compréhensibles, la compatibilité avec les lecteurs d'écran, l'utilisation de contrastes élevés pour les textes,
+et la possibilité de naviguer sans souris. L'objectif est d'assurer une expérience utilisateur inclusive, en
+tenant compte des besoins variés en matière de vision, de mobilité, d'audition ou de compréhension.
+
+Le Référentiel Général d'Amélioration de l'Accessibilité (RGAA) est un cadre réglementaire en France qui
+vise à standardiser et à améliorer l'accessibilité des services web publics et privés. Son intérêt réside dans
+la structuration et la clarification des bonnes pratiques à suivre pour rendre les sites accessibles à tous,
+notamment aux personnes en situation de handicap. En appliquant le RGAA, les développeurs s'assurent
+que leurs sites respectent les exigences légales en matière d'accessibilité, améliorent l'inclusivité, et
+réduisent ainsi les obstacles pour une large variété d'utilisateurs. Il permet aussi de favoriser une expérience
+utilisateur optimale, tout en contribuant à une meilleure conformité aux standards internationaux tels que
+les WCAG (Web Content Accessibility Guidelines).
+
+8/
+15
+
+07/05/2024
+
+Vincent Courboulay
+
+Ecoconception WEB
+
+Découverte de l’accessibilité numérique : audit et correction avec WAVE
+Contexte :
+L’accessibilité numérique est un enjeu social majeur, permettant à tous les utilisateurs, y compris les
+personnes en situation de handicap, d’accéder aux services en ligne. L’outil WAVE (Web Accessibility
+Evaluation Tool) permet d’identifier rapidement les problèmes d’accessibilité sur une page web.
+Objectifs :
+•
+
+Comprendre les bases de l’accessibilité numérique.
+
+•
+
+Utiliser WAVE pour auditer une page web.
+
+•
+
+Proposer des corrections simples pour améliorer l’accessibilité.
+
+Consignes :
+1. Découverte de WAVE
+•
+
+Consultez le site officiel : https://wave.webaim.org/
+
+•
+
+Lisez la documentation pour comprendre les icônes et les erreurs détectées.
+
+2. Audit avec WAVE
+•
+
+Lancez l’audit WAVE sur la page choisie dans la première partie du tp.
+
+•
+
+Identifiez et classez les erreurs, alertes et éléments à vérifier dans un tableau :
+
+Type
+(Erreur/Alerte/À
+vérifier)
+
+Élément concerné (ex : Localisation (URL Impact
+pour Solution
+image
+sans
+texte ou capture)
+l’utilisateur
+proposée
+alternatif)
+
+Erreur
+Alerte
+À vérifier
+3. Analyse et corrections
+•
+
+Sélectionnez 3 erreurs critiques et proposez une correction pour chacune.
+
+•
+
+Expliquez en quoi ces corrections améliorent l’expérience utilisateur pour les personnes en
+situation de handicap.
+
+4. Synthèse
+•
+
+Rédigez un court rapport (1 page max) résumant :
+o
+
+Les problèmes majeurs identifiés.
+
+o
+
+Les corrections prioritaires.
+
+o
+
+Les limites de l’outil WAVE.
+
+Livrables attendus :
+•
+
+Tableau d’audit rempli.
+
+•
+
+Captures d’écran annotées des problèmes et corrections.
+
+•
+
+Rapport de synthèse.
+
+9/
+15
+
+07/05/2024
+
+Vincent Courboulay
+
+Ecoconception WEB
+
+Audit et conformité au RGAA (Référentiel Général d’Amélioration de l’Accessibilité)
+Objectifs :
+•
+
+Comprendre la structure et les exigences du RGAA.
+
+•
+
+Appliquer une méthodologie d’audit rigoureuse.
+
+•
+
+Prioriser les actions pour atteindre la conformité.
+
+Consignes :
+1. Découverte du RGAA
+•
+
+Lisez la dernière version du RGAA.
+
+•
+
+Identifiez les 4 grands principes (perceptible, utilisable, compréhensible, robuste) et les 13 thèmes.
+
+•
+
+Sélectionnez 5 critères (niveau A ou AA) que vous jugerez pertinents pour un site grand public.
+
+2. Audit selon le RGAA
+•
+
+•
+
+Pour chaque critère sélectionné, évaluez la conformité du site :
+o
+
+Conforme / Non conforme / Non applicable.
+
+o
+
+Utilisez des outils complémentaires pour étayer votre analyse.
+
+Présentez vos résultats dans un tableau :
+
+Thème RGAA Critère (ex : 1.1 – Images) Conforme ? Preuves/Observations Outils utilisés
+Images
+Couleurs
+Structure
+etc.
+3. Analyse et recommandations
+•
+
+Identifiez les 3 critères les moins respectés.
+
+•
+
+Pour chacun, proposez :
+o
+
+Une solution technique (ex : ajouter des attributs alt, corriger le contraste).
+
+o
+
+Les acteurs concernés (développeur, designer, rédacteur).
+
+o
+
+Un exemple de code ou de contenu corrigé.
+
+4. Plan d’action et argumentaire
+•
+
+Classez vos recommandations par priorité (impact utilisateur, facilité de mise en œuvre).
+
+•
+
+Rédigez une note à destination de la direction du site, expliquant :
+o
+
+L’importance de la conformité RGAA (obligation légale, inclusion sociale).
+
+o
+
+Les bénéfices attendus (meilleure expérience utilisateur, image responsable).
+
+o
+
+Un échéancier réaliste.
+
+5 : Que retenir ?
+•
+
+Comparez le RGAA avec les WCAG (Web Content Accessibility Guidelines).
+
+•
+
+Proposez une checklist simplifiée pour les développeurs ou rédacteurs.
+
+10/
+15
+
+07/05/2024
+
+Vincent Courboulay
+
+Ecoconception WEB
+
+Conclusion
+Au cours de ce TP, vous avez exploré les enjeux majeurs d’un numérique responsable, à la fois sous l’angle
+environnemental et social. Vous repartirez avec une boîte à outils concrète pour évaluer, analyser et
+améliorer les services numériques, que ce soit pour réduire leur empreinte écologique ou pour les rendre
+accessibles à tous.
+Sur le volet écoconception, vous avez appris à manipuler des outils d’audit comme Website Carbon
+Calculator, qui vous permettent de mesurer l’impact environnemental d’un site web (émissions de CO₂,
+poids des pages, nombre de requêtes, etc.). Vous savez désormais interpréter ces indicateurs, les croiser
+pour identifier les points faibles d’un service numérique, et proposer des recommandations priorisées pour
+optimiser son empreinte.
+L’exercice sur le RGESN (Référentiel Général d’Écoconception des Services Numériques) vous a permis de
+comprendre comment appliquer une méthodologie officielle pour concevoir des services plus sobres, en
+respectant des bonnes pratiques structurées en sept familles. Vous êtes capable de rédiger un rapport
+d’audit environnemental complet, incluant un diagnostic, des solutions techniques (optimisation des
+images, choix d’un hébergement vert, réduction des scripts, etc.) et un plan d’action réaliste. Ces
+compétences sont essentielles pour répondre aux attentes croissantes en matière de sobriété numérique,
+que ce soit dans un cadre professionnel, pour le compte d’un client, ou dans vos propres projets.
+Sur le volet accessibilité et inclusion sociale, vous avez découvert l’importance de rendre les services
+numériques accessibles à tous, y compris aux personnes en situation de handicap. Grâce à l’outil WAVE,
+vous savez identifier rapidement les erreurs d’accessibilité (images sans texte alternatif, contrastes
+insuffisants, structure de titres incohérente, etc.) et proposer des corrections simples mais impactantes.
+L’exercice sur le RGAA (Référentiel Général d’Amélioration de l’Accessibilité) vous a familiarisé avec une
+démarche normative et rigoureuse, indispensable pour se conformer aux obligations légales et garantir une
+expérience utilisateur inclusive. Vous maîtrisez désormais les quatre principes fondamentaux de
+l’accessibilité (perceptible, utilisable, compréhensible, robuste) et savez auditer un site selon des critères
+précis, en priorisant les actions correctives en fonction de leur impact et de leur faisabilité.
+En combinant ces deux approches, vous disposez d’une vision globale du numérique responsable : un
+service numérique idéal est à la fois sobre, performant et accessible. Vous savez argumenter auprès de
+décideurs ou de clients sur l’importance de ces démarches, en mettant en avant les bénéfices
+environnementaux, sociaux, économiques et juridiques. Vous êtes également capable de convaincre et
+mobiliser les parties prenantes (développeurs, designers, chefs de projet) autour de ces enjeux, en
+proposant des solutions techniques, un échéancier et des indicateurs de suivi.
+Enfin, ces exercices vous ont permis de développer un esprit critique face aux outils et référentiels, en
+identifiant leurs forces et leurs limites. Vous savez que l’écoconception et l’accessibilité ne sont pas des
+contraintes, mais des leviers d’innovation et de qualité, qui améliorent l’expérience utilisateur, réduisent
+les coûts et renforcent l’image des organisations. Ces compétences sont de plus en plus recherchées dans
+le monde professionnel, où la RSE (Responsabilité Sociétale des Entreprises) et les obligations légales
+(comme la loi sur l’accessibilité numérique) deviennent des priorités.
+
+11/
+15
+
+07/05/2024
+
+Vincent Courboulay
+
+Ecoconception WEB
+
+Guide d’écoconception pour un projet de développement (SAE)
+Objectif : Intégrer l’écoconception à chaque étape du projet, de la conception à la livraison, en utilisant
+les outils et référentiels vus en TP.
+
+Organisation et planning type
+Semaine Étape du projet
+1
+Cadre et
+conception
+
+2
+
+Design et
+maquettes
+
+3
+
+Développement
+
+4
+
+Tests,
+optimisation,
+livraison
+
+Tâches écoconception
+- Définir les objectifs écoresponsables
+du projet.
+- Choisir un hébergement vert et une
+architecture sobre.
+- Rédiger une checklist des bonnes
+pratiques à respecter (voir cidessous).
+- Concevoir des maquettes sobres
+(limiter les animations, couleurs,
+polices).
+- Valider l’accessibilité dès les
+maquettes (RGAA, WAVE).
+- Développer en respectant la
+checklist (optimisation code, images,
+requêtes).
+- Tester régulièrement l’empreinte
+environnementale.
+- Auditer le projet final
+(écoconception + accessibilité).
+- Optimiser les derniers points
+bloquants.
+- Rédiger une documentation
+d’écoconception pour les
+utilisateurs/mainteneurs.
+
+12/
+15
+
+Livrables/Outils à utiliser
+Charte d’écoconception,
+RGESN, brainstorming.
+Comparatif d’hébergeurs
+(GreenWeb Foundation),
+schéma d’architecture.
+Checklist personnalisée.
+
+Figma/Adobe XD, outil de test
+de contraste (WebAIM
+Contrast Checker).
+Rapport d’accessibilité des
+maquettes.
+Code commenté, outils :
+Lighthouse, EcoIndex, GreenIT
+Analysis Method.
+Tableau de suivi des
+indicateurs (poids, CO₂,
+requêtes).
+Rapport d’audit final (RGESN,
+RGAA, WAVE).
+Liste des optimisations
+réalisées.
+Fiche mémo, guide des
+bonnes pratiques.
+
+07/05/2024
+
+Vincent Courboulay
+
+Ecoconception WEB
+
+Checklist d’écoconception à intégrer dès la conception
+1⃣ Cadrage et gouvernance
+• Définir des objectifs écoresponsables clairs pour le projet (ex : « Réduire de 30% le poids des
+pages par rapport à la moyenne du secteur »).
+• Nommer un référent écoconception dans l’équipe.
+• Intégrer l’écoconception dans le cahier des charges et les critères de validation.
+• Choisir un hébergeur vert (ex : Infomaniak, GreenGeeks, OVH avec datacenters bas carbone).
+• Prévoir un budget temps pour les audits et optimisations.
+2️⃣ Design et expérience utilisateur
+• Limiter le nombre de polices (max 2 familles) et privilégier les polices système.
+• Éviter les animations inutiles (autoplay, vidéos en fond, carousels).
+• Utiliser des couleurs sobres et vérifier les contrastes (RGAA, WCAG).
+• Concevoir des maquettes légères (éviter les images haute résolution inutiles).
+• Prévoir un mode sombre pour réduire la consommation d’énergie sur les écrans OLED.
+3️⃣ Développement front-end
+• Optimiser les images :
+o Utiliser des formats modernes (WebP, AVIF).
+o Compresser avec TinyPNG, Squoosh.
+o Implémenter le lazy loading.
+• Minifier et regrouper les fichiers CSS/JS.
+• Limiter l’usage de librairies externes (ex : éviter jQuery si Vanilla JS suffit).
+• Cacher le contenu non critique (ex : chargement différé des iframes).
+• Utiliser un système de cache efficace.
+4️⃣ Développement back-end
+• Choisir un langage et framework sobre (ex : éviter les frameworks trop lourds si le projet est
+simple).
+• Optimiser les requêtes base de données (limiter les jointures, utiliser des index).
+• Mettre en place une API légère (éviter le surdimensionnement des réponses JSON).
+• Désactiver les logs inutiles en production.
+5⃣ Hébergement et infrastructure
+• Vérifier que l’hébergeur utilise des énergies renouvelables.
+• Configurer un CDN pour réduire la latence et les transferts de données.
+• Activer la compression Gzip/Brotli sur le serveur.
+• Planifier des sauvegardes optimisées (pas de redondances inutiles).
+6️⃣ Tests et validation
+• Auditer régulièrement avec :
+o EcoIndex / Website Carbon (empreinte environnementale).
+o Lighthouse (performances, accessibilité).
+o WAVE (accessibilité).
+• Corriger les erreurs bloquantes avant la livraison.
+• Documenter les choix d’écoconception pour les mainteneurs futurs.
+7️⃣ Livraison et communication
+• Rédiger une fiche d’écoconception pour les utilisateurs (ex : « Comment utiliser ce site de
+manière économe ? »).
+• Communiquer sur les efforts d’écoconception (ex : badge « Site bas carbone », mention dans le
+footer).
+• Prévoir un suivi post-livraison (ex : audit trimestriel).
+
+13/
+15
+
+07/05/2024
+
+Vincent Courboulay
+
+Ecoconception WEB
+
+Outils recommandés pour chaque étape
+Besoin
+Outil/Referentiel
+Audit écoconception EcoIndex, Website Carbon, GreenIT Analysis Method
+Audit accessibilité
+WAVE, RGAA,
+Optimisation images TinyPNG, Squoosh,
+Test de performances Lighthouse,
+Hébergement vert
+GreenWeb Foundation, The Green Web Directory
+Documentation
+Notion, Markdown, GitHub Wiki
+Conseils pour réussir l’intégration de l’écoconception
+1. Impliquez toute l’équipe : L’écoconception n’est pas seulement l’affaire des développeurs.
+Designers, chefs de projet et rédacteurs doivent aussi adopter ces bonnes pratiques.
+2. Priorisez : Concentrez-vous d’abord sur les actions à fort impact et faciles à mettre en œuvre (ex :
+optimisation des images, choix de l’hébergeur).
+3. Documentez : Notez chaque choix d’écoconception et ses justifications pour faciliter la
+maintenance future.
+4. Testez tôt et souvent : Intégrez les audits dès les premières maquettes et à chaque sprint de
+développement.
+5. Sensibilisez : Expliquez à vos utilisateurs ou clients pourquoi ces efforts sont importants (ex : via
+une page « Notre engagement écoresponsable »).
+Exemple de fiche de suivi hebdomadaire
+À remplir chaque semaine pour suivre l’avancement :
+Semaine Actions écoconception réalisées
+1
+2
+3
+4
+
+Indicateurs
+(avant/après)
+
+Choix de l’hébergeur vert, rédaction de la
+checklist
+Optimisation des maquettes, test de
+contraste
+Minification CSS/JS, lazy loading images
+Correction des erreurs Lighthouse,
+documentation
+
+Prochaines
+étapes
+Maquettes sobres
+Développement
+Audit final
+Livraison
+
+Pourquoi ce guide est utile ?
+• Il permet d’intégrer l’écoconception de manière progressive et réaliste sur un mois.
+• Il s’appuie sur des outils concrets et des référentiels officiels (RGESN, RGAA).
+• Il prépare les étudiants à justifier leurs choix face à un client ou un jury.
+• Il les habitue à documenter et communiquer sur leurs démarches écoresponsables.
+
+14/
+15
+
+07/05/2024
+
+Vincent Courboulay
+
+Ecoconception WEB
+
+15/
+15
+
+07/05/2024
+
+

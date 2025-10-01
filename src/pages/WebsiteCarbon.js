@@ -314,6 +314,84 @@ const WebsiteCarbon = () => {
           </p>
         </div>
       </div>
+
+      <div className="section">
+        <h2>📄 Fiche mémo récapitulative</h2>
+        
+        <div className="card" style={{ backgroundColor: '#f0fdf4', border: '2px solid var(--primary-color)' }}>
+          <h3 style={{ color: 'var(--primary-color)', marginTop: 0, textAlign: 'center' }}>
+            🌍 Comment fonctionne Website Carbon Calculator ?
+          </h3>
+          
+          <div className="grid grid-2" style={{ gap: '1.5rem', marginTop: '1.5rem' }}>
+            <div>
+              <h4 style={{ color: 'var(--primary-color)', marginBottom: '0.5rem' }}>📥 Entrée</h4>
+              <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', border: '1px solid #d1d5db' }}>
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                  • URL du site web<br/>
+                  • Poids total de la page (Mo)<br/>
+                  • Nombre de visites mensuelles
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h4 style={{ color: 'var(--primary-color)', marginBottom: '0.5rem' }}>📤 Sortie</h4>
+              <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', border: '1px solid #d1d5db' }}>
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                  • g CO₂ par visite<br/>
+                  • Note de A à F<br/>
+                  • Comparaison avec la moyenne
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ marginTop: '1.5rem', backgroundColor: 'white', padding: '1rem', borderRadius: '8px', border: '1px solid #d1d5db' }}>
+            <h4 style={{ color: 'var(--primary-color)', marginBottom: '0.5rem', textAlign: 'center' }}>
+              ⚙️ Formule de calcul simplifiée
+            </h4>
+            <div style={{ textAlign: 'center', fontSize: '1.1rem', margin: '1rem 0', padding: '0.75rem', backgroundColor: '#f9fafb', borderRadius: '6px' }}>
+              <strong>CO₂ = Poids (Mo) × 0.5 kWh × Facteur carbone × (1 - % énergie verte)</strong>
+            </div>
+            <p style={{ fontSize: '0.85rem', textAlign: 'center', marginBottom: 0, color: '#64748b' }}>
+              Où : 0.5 kWh = énergie moyenne pour transférer 1 Go de données
+            </p>
+          </div>
+
+          <div className="grid grid-3" style={{ gap: '1rem', marginTop: '1.5rem' }}>
+            <div style={{ textAlign: 'center', padding: '0.75rem', backgroundColor: 'white', borderRadius: '8px', border: '1px solid #d1d5db' }}>
+              <div style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>✅</div>
+              <strong style={{ fontSize: '0.85rem', color: 'var(--primary-color)' }}>Forces</strong>
+              <p style={{ fontSize: '0.8rem', margin: '0.5rem 0 0 0' }}>Simple, rapide, sensibilisation</p>
+            </div>
+            
+            <div style={{ textAlign: 'center', padding: '0.75rem', backgroundColor: 'white', borderRadius: '8px', border: '1px solid #d1d5db' }}>
+              <div style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>⚠️</div>
+              <strong style={{ fontSize: '0.85rem', color: 'var(--warning-color)' }}>Limites</strong>
+              <p style={{ fontSize: '0.8rem', margin: '0.5rem 0 0 0' }}>Calculs approximatifs, peu de détails</p>
+            </div>
+            
+            <div style={{ textAlign: 'center', padding: '0.75rem', backgroundColor: 'white', borderRadius: '8px', border: '1px solid #d1d5db' }}>
+              <div style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>💡</div>
+              <strong style={{ fontSize: '0.85rem', color: 'var(--info-color)' }}>Conseil</strong>
+              <p style={{ fontSize: '0.8rem', margin: '0.5rem 0 0 0' }}>À combiner avec EcoIndex</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="alert alert-info" style={{ marginTop: '1.5rem' }}>
+          <h4 style={{ marginTop: 0 }}>❓ Question fréquente d'un débutant</h4>
+          <p style={{ marginBottom: '0.5rem' }}><strong>Q : "Mon site affiche 0.16g de CO₂ par visite. Est-ce bien ou mal ?"</strong></p>
+          <p><strong>R :</strong> C'est plutôt bon ! La moyenne mondiale est d'environ 0.5-0.8g par visite. Voici comment interpréter :</p>
+          <ul style={{ marginBottom: 0 }}>
+            <li><strong>&lt; 0.20g</strong> : Excellent (note A ou B)</li>
+            <li><strong>0.20-0.50g</strong> : Bien (note C ou D)</li>
+            <li><strong>0.50-1.00g</strong> : Moyen (note E)</li>
+            <li><strong>&gt; 1.00g</strong> : À améliorer (note F)</li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };

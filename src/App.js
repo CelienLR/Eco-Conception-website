@@ -4,7 +4,6 @@ import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import ToolsComparison from './pages/ToolsComparison';
 import WebsiteCarbon from './pages/WebsiteCarbon';
-import EnvironmentalAudit from './pages/EnvironmentalAudit';
 import RGESN from './pages/RGESN';
 import WAVE from './pages/WAVE';
 import RGAA from './pages/RGAA';
@@ -21,7 +20,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/tools-comparison" element={<ToolsComparison />} />
             <Route path="/website-carbon" element={<WebsiteCarbon />} />
-            <Route path="/environmental-audit" element={<EnvironmentalAudit />} />
             <Route path="/rgesn" element={<RGESN />} />
             <Route path="/wave" element={<WAVE />} />
             <Route path="/rgaa" element={<RGAA />} />

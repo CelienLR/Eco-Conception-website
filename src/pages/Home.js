@@ -117,9 +117,9 @@ const Home = () => {
               Réduire l'empreinte carbone et les ressources consommées par le projet numérique.
             </p>
             <ul>
-              <li>Audit environnemental</li>
               <li>Optimisation des ressources</li>
               <li>Conformité RGESN</li>
+              <li>Mesure d'impact carbone</li>
             </ul>
           </div>
 
@@ -183,19 +183,6 @@ const Home = () => {
             </h3>
             <p style={{ color: 'var(--text-color)' }}>
               Décryptage technique et pédagogique de l'outil Website Carbon Calculator.
-            </p>
-          </Link>
-
-          <Link to="/environmental-audit" className="card" style={{ textDecoration: 'none' }}>
-            <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span>
-                <FontAwesomeIcon icon={faClipboardCheck} style={{ marginRight: '0.5rem', color: 'var(--primary-color)' }} />
-                Audit Environnemental
-              </span>
-              <FontAwesomeIcon icon={faArrowRight} style={{ fontSize: '1rem', color: 'var(--primary-color)' }} />
-            </h3>
-            <p style={{ color: 'var(--text-color)' }}>
-              Diagnostic complet du site cholet.fr avec recommandations d'optimisation.
             </p>
           </Link>
 

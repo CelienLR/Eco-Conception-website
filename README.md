@@ -27,7 +27,6 @@ npm run build
 - **Accueil** : Introduction et contexte
 - **Comparaison d'outils** : Analyse de 5 outils d'écoconception
 - **Website Carbon Calculator** : Décryptage technique
-- **Audit environnemental** : Diagnostic complet de cholet.fr
 - **RGESN** : Application du référentiel
 - **WAVE** : Audit d'accessibilité
 - **RGAA** : Conformité et recommandations

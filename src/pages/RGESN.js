@@ -425,6 +425,174 @@ const RGESN = () => {
           </p>
         </div>
       </div>
+
+      <div className="section">
+        <h2>📄 Fiche mémo : Étapes clés d'un audit RGESN</h2>
+        
+        <div className="card" style={{ backgroundColor: '#eff6ff', border: '2px solid var(--info-color)' }}>
+          <h3 style={{ color: 'var(--info-color)', marginTop: 0, textAlign: 'center' }}>
+            🔍 Méthodologie d'audit RGESN en 6 étapes
+          </h3>
+          
+          <div className="grid grid-2" style={{ gap: '1.5rem', marginTop: '1.5rem' }}>
+            <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', border: '2px solid #3b82f6' }}>
+              <h4 style={{ color: 'var(--info-color)', marginTop: 0 }}>1️⃣ Préparation</h4>
+              <ul style={{ marginBottom: 0, fontSize: '0.9rem' }}>
+                <li>Télécharger le RGESN officiel</li>
+                <li>Identifier le service à auditer</li>
+                <li>Préparer les outils (EcoIndex, Lighthouse, WAVE)</li>
+              </ul>
+            </div>
+
+            <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', border: '2px solid #3b82f6' }}>
+              <h4 style={{ color: 'var(--info-color)', marginTop: 0 }}>2️⃣ Sélection des critères</h4>
+              <ul style={{ marginBottom: 0, fontSize: '0.9rem' }}>
+                <li>Choisir 5-10 critères pertinents</li>
+                <li>Prioriser selon l'accès (front/back)</li>
+                <li>Couvrir les 8 familles du RGESN</li>
+              </ul>
+            </div>
+
+            <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', border: '2px solid #3b82f6' }}>
+              <h4 style={{ color: 'var(--info-color)', marginTop: 0 }}>3️⃣ Audit terrain</h4>
+              <ul style={{ marginBottom: 0, fontSize: '0.9rem' }}>
+                <li>Tester chaque critère avec des outils</li>
+                <li>Documenter avec captures d'écran</li>
+                <li>Noter : Conforme / Non conforme / Partiel</li>
+              </ul>
+            </div>
+
+            <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', border: '2px solid #3b82f6' }}>
+              <h4 style={{ color: 'var(--info-color)', marginTop: 0 }}>4️⃣ Analyse</h4>
+              <ul style={{ marginBottom: 0, fontSize: '0.9rem' }}>
+                <li>Identifier les 3 critères les moins respectés</li>
+                <li>Évaluer l'impact environnemental</li>
+                <li>Estimer la faisabilité des corrections</li>
+              </ul>
+            </div>
+
+            <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', border: '2px solid #3b82f6' }}>
+              <h4 style={{ color: 'var(--info-color)', marginTop: 0 }}>5️⃣ Plan d'action</h4>
+              <ul style={{ marginBottom: 0, fontSize: '0.9rem' }}>
+                <li>Proposer des solutions techniques</li>
+                <li>Prioriser (impact × facilité)</li>
+                <li>Définir échéancier et responsables</li>
+              </ul>
+            </div>
+
+            <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', border: '2px solid #3b82f6' }}>
+              <h4 style={{ color: 'var(--info-color)', marginTop: 0 }}>6️⃣ Communication</h4>
+              <ul style={{ marginBottom: 0, fontSize: '0.9rem' }}>
+                <li>Rédiger rapport d'audit</li>
+                <li>Présenter à la direction</li>
+                <li>Suivre les indicateurs dans le temps</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: 'white', borderRadius: '8px', border: '1px solid #dbeafe' }}>
+            <h4 style={{ color: 'var(--info-color)', marginTop: 0, textAlign: 'center' }}>
+              ⏱️ Temps estimé
+            </h4>
+            <p style={{ textAlign: 'center', marginBottom: 0 }}>
+              <strong>Audit complet :</strong> 4-8 heures selon la complexité du service<br/>
+              <strong>Rédaction du rapport :</strong> 2-3 heures<br/>
+              <strong>Présentation :</strong> 30-45 minutes
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <h2>📝 Note de synthèse à la direction</h2>
+        
+        <div className="card" style={{ backgroundColor: '#fefce8', border: '2px solid var(--warning-color)' }}>
+          <div style={{ textAlign: 'right', fontSize: '0.85rem', color: '#64748b', marginBottom: '1rem' }}>
+            À l'attention de : Direction des Services Numériques<br/>
+            De : Équipe Écoconception<br/>
+            Date : {new Date().toLocaleDateString('fr-FR')}<br/>
+            Objet : Audit RGESN du site cholet.fr - Synthèse et recommandations
+          </div>
+
+          <h3 style={{ color: 'var(--warning-color)', marginTop: 0, borderBottom: '2px solid var(--warning-color)', paddingBottom: '0.5rem' }}>
+            Synthèse exécutive
+          </h3>
+
+          <p>
+            Suite à l'audit du site cholet.fr selon le référentiel RGESN (Référentiel Général d'Écoconception 
+            des Services Numériques), nous avons identifié <strong>des opportunités significatives d'amélioration</strong> 
+            de l'empreinte environnementale du service.
+          </p>
+
+          <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
+            <h4 style={{ marginTop: 0 }}>📊 État actuel</h4>
+            <ul style={{ marginBottom: 0 }}>
+              <li>Score EcoIndex : <strong>E (40/100)</strong> - Amélioration nécessaire</li>
+              <li>Empreinte CO₂ : <strong>0.16g/visite</strong> - Acceptable mais optimisable</li>
+              <li>Conformité RGESN : <strong>3/5 critères audités respectés</strong></li>
+            </ul>
+          </div>
+
+          <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
+            <h4 style={{ marginTop: 0 }}>🎯 Objectifs proposés (6 mois)</h4>
+            <ul style={{ marginBottom: 0 }}>
+              <li>Atteindre un score EcoIndex de <strong>B (70/100)</strong></li>
+              <li>Réduire l'empreinte CO₂ de <strong>19%</strong> (objectif : 0.13g/visite)</li>
+              <li>Conformité RGESN : <strong>100% des critères prioritaires</strong></li>
+            </ul>
+          </div>
+
+          <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
+            <h4 style={{ marginTop: 0 }}>💰 Retour sur investissement</h4>
+            <table style={{ width: '100%', fontSize: '0.9rem' }}>
+              <tbody>
+                <tr>
+                  <td><strong>Réduction coûts hébergement</strong></td>
+                  <td style={{ textAlign: 'right' }}>-30% / an</td>
+                </tr>
+                <tr>
+                  <td><strong>Gain performance (SEO)</strong></td>
+                  <td style={{ textAlign: 'right' }}>+15-20 pts Lighthouse</td>
+                </tr>
+                <tr>
+                  <td><strong>Économie CO₂ annuelle</strong></td>
+                  <td style={{ textAlign: 'right' }}>3.6 kg (10k visites/mois)</td>
+                </tr>
+                <tr style={{ borderTop: '2px solid #e5e7eb' }}>
+                  <td><strong>Investissement temps</strong></td>
+                  <td style={{ textAlign: 'right' }}>15-20 jours/homme</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style={{ backgroundColor: '#dcfce7', padding: '1rem', borderRadius: '8px', marginTop: '1rem', border: '1px solid var(--primary-color)' }}>
+            <h4 style={{ marginTop: 0, color: 'var(--primary-color)' }}>✅ Actions prioritaires (Quick Wins)</h4>
+            <ol style={{ marginBottom: 0 }}>
+              <li><strong>Optimiser les images</strong> (WebP, compression) - Gain : -50% poids</li>
+              <li><strong>Implémenter le lazy loading</strong> - Gain immédiat sur chargement</li>
+              <li><strong>Minifier CSS/JS</strong> - Gain : -20% ressources</li>
+            </ol>
+          </div>
+
+          <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: '#fee2e2', borderRadius: '8px', border: '1px solid var(--error-color)' }}>
+            <h4 style={{ marginTop: 0, color: 'var(--error-color)' }}>⚠️ Risques de l'inaction</h4>
+            <ul style={{ marginBottom: 0, fontSize: '0.9rem' }}>
+              <li>Non-conformité à la loi REEN (2021) - Exposition juridique</li>
+              <li>Image dégradée auprès des citoyens sensibles à l'écologie</li>
+              <li>Coûts d'hébergement croissants (+10-15% /an)</li>
+              <li>Perte de compétitivité face aux collectivités engagées</li>
+            </ul>
+          </div>
+
+          <div style={{ marginTop: '1.5rem', textAlign: 'center', padding: '1rem', backgroundColor: 'white', borderRadius: '8px' }}>
+            <p style={{ marginBottom: '0.5rem', fontSize: '1.1rem' }}><strong>Recommandation :</strong></p>
+            <p style={{ marginBottom: 0, color: 'var(--primary-color)', fontWeight: 'bold' }}>
+              Lancer un plan d'écoconception sur 6 mois avec suivi trimestriel des indicateurs.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
