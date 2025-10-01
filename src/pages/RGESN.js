@@ -12,73 +12,73 @@ const RGESN = () => {
   const rgesnCriteria = [
     {
       family: 'Stratégie',
-      criterion: '1.3 - Le service numérique a-t-il été éco-conçu en suivant une démarche d\'amélioration continue ?',
+      criterion: '1.2 - Le service numérique a-t-il défini ses cibles utilisatrices, les besoins métiers et les attentes réelles des utilisateurs-cibles ?',
+      status: 'Partiellement',
+      evidence: 'Site public généraliste mais pas de personas ou d\'étude utilisateur visible. Pas de documentation sur les besoins métiers définis.',
+      tools: 'Documentation du site, analyse navigation'
+    },
+    {
+      family: 'Stratégie',
+      criterion: '1.4 - Le service numérique réalise-t-il régulièrement des revues pour s\'assurer du respect de sa démarche d\'écoconception ?',
       status: 'Non',
-      evidence: 'Aucune documentation visible sur une démarche d\'écoconception ou d\'amélioration continue des performances environnementales.',
-      tools: 'Documentation du site, mentions légales'
+      evidence: 'Aucune déclaration d\'écoconception disponible. Pas de preuve de revues régulières ou d\'audits environnementaux.',
+      tools: 'Recherche documentation, mentions légales'
     },
     {
       family: 'Spécifications',
-      criterion: '2.7 - Le service numérique utilise-t-il un système de cache pour les données issues de la base de données ?',
+      criterion: '2.2 - Le service numérique est-il utilisable sur d\'anciens modèles de terminaux ?',
       status: 'Partiellement',
-      evidence: 'Présence de headers cache-control mais configuration non optimale. Certaines ressources statiques ne sont pas mises en cache de manière efficace.',
-      tools: 'Chrome DevTools (Network), Lighthouse'
+      evidence: 'Site fonctionnel sur navigateurs récents mais performances dégradées sur matériel ancien (> 7 ans). Pas de test documenté sur anciens terminaux.',
+      tools: 'Chrome DevTools (Device simulation), Tests manuels'
     },
     {
-      family: 'Architecture',
-      criterion: '3.1 - Le service numérique utilise-t-il un hébergement signataire du Code de Conduite européen sur les datacentres ?',
-      status: 'Non vérifié',
-      evidence: 'Informations sur l\'hébergement non publiques. Pas de mention d\'un hébergeur vert ou certifié.',
-      tools: 'The Green Web Foundation, DNS lookup'
+      family: 'Spécifications',
+      criterion: '2.5 - Le service numérique s\'adapte-t-il à différents types de terminaux d\'affichage ?',
+      status: 'Oui',
+      evidence: 'Design responsive fonctionnel. Affichage correct de 320px (mobile) à 1920px (desktop). Navigation adaptative tactile/souris.',
+      tools: 'Chrome DevTools (Responsive), Lighthouse'
     },
     {
       family: 'UX/UI',
-      criterion: '4.5 - Le service numérique propose-t-il une version accessible et allégée des documents PDF ?',
-      status: 'Non',
-      evidence: 'Plusieurs PDF disponibles en téléchargement mais aucune version allégée ou alternative HTML proposée. Tailles de PDF parfois très élevées (> 5 MB).',
-      tools: 'Navigation manuelle, analyse des téléchargements'
-    },
-    {
-      family: 'UX/UI',
-      criterion: '4.9 - Le service numérique a-t-il été conçu avec une approche "mobile first" ?',
+      criterion: '4.6 - Le service numérique limite-t-il le chargement de polices de caractères personnalisées ?',
       status: 'Partiellement',
-      evidence: 'Le site est responsive mais la version mobile semble être une adaptation de la version desktop plutôt qu\'une conception mobile-first. Poids similaire sur mobile et desktop.',
-      tools: 'Chrome DevTools (Responsive), Lighthouse Mobile'
-    },
-    {
-      family: 'Contenus',
-      criterion: '5.1 - Le service numérique propose-t-il des images dans des formats adaptés à leur usage ?',
-      status: 'Non',
-      evidence: 'Images principalement en JPEG et PNG. Absence de formats modernes (WebP, AVIF). Tailles d\'images non adaptées aux écrans (images 3000px affichées en 800px).',
-      tools: 'Chrome DevTools (Elements), WebPageTest'
-    },
-    {
-      family: 'Contenus',
-      criterion: '5.6 - Les images du service numérique sont-elles lazy-loadées ?',
-      status: 'Non',
-      evidence: 'Aucune image ne possède l\'attribut loading="lazy". Toutes les images sont chargées au chargement initial de la page, même celles en dessous de la ligne de flottaison.',
-      tools: 'Inspection HTML, Lighthouse'
-    },
-    {
-      family: 'Frontend',
-      criterion: '6.2 - Les fichiers CSS et JavaScript sont-ils minifiés ?',
-      status: 'Partiellement',
-      evidence: 'Certains fichiers sont minifiés mais plusieurs scripts et styles ne le sont pas. Présence de commentaires et espaces inutiles dans certains fichiers.',
-      tools: 'Chrome DevTools (Sources), Lighthouse'
-    },
-    {
-      family: 'Frontend',
-      criterion: '6.8 - Le service numérique utilise-t-il un nombre raisonnable de polices de caractères ?',
-      status: 'Partiellement',
-      evidence: '4 familles de polices chargées, ce qui est au-dessus de la recommandation (max 2). Utilisation de Google Fonts qui génère des requêtes externes.',
+      evidence: '4 familles de polices chargées (recommandation : max 2). Utilisation de Google Fonts générant des requêtes externes (DNS lookup, téléchargement).',
       tools: 'Chrome DevTools (Network), Font inspection'
     },
     {
+      family: 'UX/UI',
+      criterion: '4.11 - Le service numérique affiche-t-il les images dans une taille adaptée à la résolution de l\'écran ?',
+      status: 'Non',
+      evidence: 'Images surdimensionnées : fichiers de 3000×2000px affichés en 800×533px. Absence d\'images responsive (srcset). Gaspillage de bande passante.',
+      tools: 'Chrome DevTools (Elements), Lighthouse, WebPageTest'
+    },
+    {
+      family: 'Contenus',
+      criterion: '5.4 - Le service numérique permet-il à l\'utilisateur d\'ajuster la qualité des médias audio et vidéo ?',
+      status: 'Non applicable',
+      evidence: 'Pas de contenu audio/vidéo hébergé sur le site. Quelques vidéos YouTube embarquées sans contrôle de qualité.',
+      tools: 'Navigation manuelle'
+    },
+    {
       family: 'Frontend',
-      criterion: '6.10 - Le service numérique évite-t-il les animations JavaScript/CSS coûteuses ?',
-      status: 'Oui',
-      evidence: 'Animations CSS relativement sobres. Pas d\'animations JavaScript complexes détectées. Utilisation modérée des transitions.',
-      tools: 'Chrome DevTools (Performance), Lighthouse'
+      criterion: '6.5 - Les fichiers CSS, JavaScript et HTML sont-ils minifiés ?',
+      status: 'Partiellement',
+      evidence: 'Certains fichiers minifiés mais plusieurs scripts comportent encore des commentaires et espaces. Pas de minification systématique.',
+      tools: 'Chrome DevTools (Sources), Lighthouse, Coverage'
+    },
+    {
+      family: 'Frontend',
+      criterion: '6.7 - Le service numérique utilise-t-il des formats d\'images et de vidéos adaptés ?',
+      status: 'Non',
+      evidence: 'Images uniquement en JPEG/PNG. Absence totale de formats modernes (WebP, AVIF). Pas d\'optimisation ni de compression avancée.',
+      tools: 'Chrome DevTools (Network), ImageOptim, Squoosh'
+    },
+    {
+      family: 'Frontend',
+      criterion: '6.9 - Le service numérique adapte-t-il les ressources chargées en fonction du type d\'appareil ou du contexte de navigation ?',
+      status: 'Non',
+      evidence: 'Même poids de page et mêmes ressources chargées sur mobile et desktop. Pas de stratégie de chargement adaptatif (responsive images, lazy loading).',
+      tools: 'Chrome DevTools (Network), Lighthouse Mobile/Desktop'
     }
   ];
 
@@ -90,43 +90,43 @@ const RGESN = () => {
 
   const recommendations = [
     {
-      criterion: '5.1 et 5.6 - Optimisation des images',
+      criterion: '4.11 et 6.7 - Optimisation des images',
       priority: 1,
-      action: 'Convertir toutes les images en format WebP/AVIF et implémenter le lazy loading natif',
+      action: 'Convertir toutes les images en format WebP/AVIF avec dimensionnement adapté et implémenter des images responsive (srcset)',
       actors: 'Développeur frontend, Intégrateur',
-      gain: '-40% du poids des pages, -50% des requêtes au chargement initial',
-      obstacles: 'Temps de conversion, compatibilité navigateurs anciens (solution : fallback)'
+      gain: '-50% du poids des images, amélioration temps de chargement de 30%',
+      obstacles: 'Temps de conversion, génération multiple résolutions, compatibilité navigateurs (solution : fallback)'
     },
     {
-      criterion: '6.2 - Minification des assets',
+      criterion: '6.5 - Minification des assets',
       priority: 1,
-      action: 'Mettre en place un processus de build automatique (Webpack/Vite) pour minifier tous les CSS/JS',
+      action: 'Mettre en place un processus de build automatique (Webpack/Vite/Parcel) pour minifier tous les CSS/JS/HTML',
       actors: 'Développeur, DevOps',
-      gain: '-20% du poids des scripts et styles',
+      gain: '-20% du poids des scripts et styles, -15% temps de parsing',
       obstacles: 'Configuration initiale, adaptation du workflow de déploiement'
     },
     {
-      criterion: '3.1 - Hébergement vert',
-      priority: 2,
-      action: 'Migrer vers un hébergeur certifié utilisant des énergies renouvelables (ex: Infomaniak, Ikoula)',
-      actors: 'Chef de projet, Direction IT, Prestataire hébergement',
-      gain: '-50% des émissions CO₂ liées à l\'hébergement',
-      obstacles: 'Coût de migration, temps de transfert, potentiels temps d\'indisponibilité'
+      criterion: '1.4 - Déclaration d\'écoconception',
+      priority: 1,
+      action: 'Publier une déclaration d\'écoconception et mettre en place des revues régulières (trimestrielles)',
+      actors: 'Responsable RSE, Chef de projet, Référent écoconception',
+      gain: 'Transparence, suivi des progrès, conformité légale',
+      obstacles: 'Temps de rédaction, engagement sur la durée, ressources à mobiliser'
     },
     {
-      criterion: '4.5 - Documents PDF allégés',
+      criterion: '6.9 - Chargement adaptatif',
       priority: 2,
-      action: 'Créer des versions HTML des documents importants et optimiser les PDF (compression, résolution)',
-      actors: 'Rédacteur web, Développeur',
-      gain: '-60% du poids des documents, meilleure accessibilité',
-      obstacles: 'Temps de conversion, maintenance de deux formats'
+      action: 'Implémenter une stratégie de chargement différencié mobile/desktop (code splitting, lazy loading, responsive images)',
+      actors: 'Développeur frontend, Architecte',
+      gain: '-35% du poids sur mobile, meilleure performance réseau bas débit',
+      obstacles: 'Refonte architecture, tests multi-devices, complexité maintenance'
     },
     {
-      criterion: '6.8 - Réduction des fonts',
+      criterion: '4.6 - Réduction des fonts',
       priority: 3,
-      action: 'Limiter à 2 familles de polices maximum et utiliser des polices système en priorité',
+      action: 'Limiter à 2 familles de polices maximum, privilégier polices système, subset des glyphes utilisés',
       actors: 'Designer, Développeur frontend',
-      gain: '-75% du poids des fonts, -4 requêtes HTTP',
+      gain: '-75% du poids des fonts, -3 requêtes HTTP, amélioration FCP',
       obstacles: 'Résistance créative, charte graphique à adapter'
     }
   ];
@@ -161,7 +161,7 @@ const RGESN = () => {
 
           <div className="card">
             <h3>🗂️ Structure du référentiel</h3>
-            <p><strong>79 critères</strong> répartis en <strong>8 familles</strong> :</p>
+            <p><strong>79 critères</strong> répartis en <strong>9 familles</strong> :</p>
             <ul style={{ fontSize: '0.95rem', marginBottom: 0 }}>
               <li><strong>Stratégie</strong> - Gouvernance et pilotage</li>
               <li><strong>Spécifications</strong> - Cahier des charges</li>
@@ -171,6 +171,7 @@ const RGESN = () => {
               <li><strong>Frontend</strong> - Code client</li>
               <li><strong>Backend</strong> - Code serveur</li>
               <li><strong>Hébergement</strong> - Infrastructure</li>
+              <li><strong>Algorithmie</strong> - Optimisation des algorithmes</li>
             </ul>
           </div>
         </div>
@@ -449,7 +450,7 @@ const RGESN = () => {
               <ul style={{ marginBottom: 0, fontSize: '0.9rem' }}>
                 <li>Choisir 5-10 critères pertinents</li>
                 <li>Prioriser selon l'accès (front/back)</li>
-                <li>Couvrir les 8 familles du RGESN</li>
+                <li>Couvrir les 9 familles du RGESN</li>
               </ul>
             </div>
 
