@@ -222,7 +222,7 @@ const WebsiteCarbon = () => {
         </div>
 
         <div className="alert alert-info" style={{ marginTop: '1.5rem' }}>
-          <strong>Peut-on lui faire confiance ?</strong> Oui, pour une <strong>estimation approximative</strong>
+          <strong>Peut-on lui faire confiance ?</strong> Oui, pour une <strong>estimation approximative </strong>
           et une sensibilisation. Non, pour une mesure précise. L'outil est idéal pour identifier les pages
           problématiques et suivre les améliorations, mais doit être complété par d'autres outils pour un
           audit complet.
