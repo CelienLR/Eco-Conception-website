@@ -12,114 +12,125 @@ const WAVE = () => {
   const auditResults = [
     {
       type: 'Erreur',
-      element: 'Images sans texte alternatif',
-      location: 'Page d\'accueil - Carrousel principal',
-      impact: 'Critique : Les utilisateurs de lecteurs d\'écran ne peuvent pas accéder au contenu visuel',
-      solution: 'Ajouter un attribut alt descriptif à toutes les images : <img src="..." alt="Description précise de l\'image">',
+      element: 'Missing form label (1x)',
+      location: 'Barre de recherche - Header du site',
+      impact: 'Critique : Champ de recherche sans étiquette <label>, inaccessible aux lecteurs d\'écran',
+      solution: 'Ajouter <label for="search">Rechercher</label> ou utiliser aria-label="Rechercher sur le site"',
       icon: faExclamationCircle,
       color: 'var(--error-color)'
     },
     {
       type: 'Erreur',
-      element: 'Contraste insuffisant (texte/fond)',
-      location: 'Footer - Liens sociaux et mentions légales',
-      impact: 'Important : Texte gris clair sur fond gris (#999 sur #ddd) - ratio 2.1:1 au lieu de 4.5:1 minimum',
-      solution: 'Augmenter le contraste en utilisant un texte plus foncé (#555) ou un fond plus clair (#fff)',
+      element: 'Empty button (3x)',
+      location: 'Navigation principale - Menus déroulants',
+      impact: 'Critique : Boutons sans texte ni aria-label, annoncés comme "bouton vide" par les lecteurs d\'écran',
+      solution: 'Ajouter aria-label explicite : <button aria-label="Ouvrir le menu">',
       icon: faExclamationCircle,
       color: 'var(--error-color)'
     },
     {
       type: 'Erreur',
-      element: 'Liens vides',
-      location: 'Navigation secondaire - Icônes sociales',
-      impact: 'Critique : Liens <a> sans texte ni aria-label, incompréhensibles pour les lecteurs d\'écran',
-      solution: 'Ajouter aria-label aux liens icônes : <a href="..." aria-label="Suivez-nous sur Facebook">',
-      icon: faExclamationCircle,
-      color: 'var(--error-color)'
-    },
-    {
-      type: 'Erreur',
-      element: 'Hiérarchie de titres incorrecte',
-      location: 'Pages d\'actualités',
-      impact: 'Moyen : Passage de <h2> directement à <h4>, saute le niveau <h3>',
-      solution: 'Respecter l\'ordre hiérarchique : h1 > h2 > h3 > h4 sans sauter de niveau',
+      element: 'Broken ARIA menu (5x)',
+      location: 'Navigation principale et secondaire',
+      impact: 'Important : Attributs ARIA incorrects (role="menu" mal utilisé), structure confuse pour les technologies d\'assistance',
+      solution: 'Corriger les rôles ARIA : utiliser role="navigation" avec aria-expanded et aria-haspopup appropriés',
       icon: faExclamationCircle,
       color: 'var(--error-color)'
     },
     {
       type: 'Alerte',
-      element: 'Lien suspect (texte "Cliquez ici")',
-      location: 'Articles de blog',
-      impact: 'Moyen : Texte de lien non explicite hors contexte',
-      solution: 'Utiliser des libellés descriptifs : "Lire l\'article sur [sujet]" au lieu de "Cliquez ici"',
+      element: 'Missing fieldset (1x)',
+      location: 'Formulaires - Groupe de boutons radio',
+      impact: 'Moyen : Absence de <fieldset> pour regrouper les champs liés',
+      solution: 'Envelopper les boutons radio dans <fieldset><legend>Titre du groupe</legend>...</fieldset>',
       icon: faExclamationTriangle,
       color: 'var(--warning-color)'
     },
     {
       type: 'Alerte',
-      element: 'Texte alternatif redondant',
-      location: 'Galerie photos',
-      impact: 'Faible : Attribut alt identique au texte adjacent',
-      solution: 'Éviter la redondance : si l\'image est décorative et a un texte adjacent, utiliser alt=""',
+      element: 'Possible heading (1x)',
+      location: 'Contenu éditorial',
+      impact: 'Faible : Texte stylé comme un titre mais sans balise sémantique appropriée',
+      solution: 'Utiliser les balises <h2>, <h3>, etc. au lieu de <p> avec style gras/grand',
       icon: faExclamationTriangle,
       color: 'var(--warning-color)'
     },
     {
       type: 'Alerte',
-      element: 'Label de formulaire manquant',
-      location: 'Recherche - Champ de saisie',
-      impact: 'Important : Input sans <label> associé',
-      solution: 'Ajouter un label explicite : <label for="search">Rechercher sur le site</label>',
+      element: 'Noscript element (1x)',
+      location: 'Code source - Balise <noscript>',
+      impact: 'Info : Présence de contenu alternatif si JavaScript désactivé (bonne pratique)',
+      solution: 'Vérifier que le contenu noscript offre une alternative fonctionnelle',
       icon: faExclamationTriangle,
       color: 'var(--warning-color)'
     },
     {
-      type: 'À vérifier',
-      element: 'Texte justifié',
-      location: 'Pages de contenu éditorial',
-      impact: 'Variable : La justification peut créer des espaces irréguliers difficiles à lire',
-      solution: 'Privilégier l\'alignement à gauche pour améliorer la lisibilité',
-      icon: faInfoCircle,
-      color: 'var(--info-color)'
+      type: 'Alerte',
+      element: 'Device dependent event handler (2x)',
+      location: 'Éléments interactifs JavaScript',
+      impact: 'Moyen : Gestionnaires d\'événements uniquement souris (onclick), non accessibles au clavier',
+      solution: 'Ajouter les gestionnaires clavier : onKeyPress ou onKeyDown en complément',
+      icon: faExclamationTriangle,
+      color: 'var(--warning-color)'
     },
     {
-      type: 'À vérifier',
-      element: 'Ordre de tabulation',
-      location: 'Navigation principale',
-      impact: 'Variable : L\'ordre de navigation au clavier doit suivre l\'ordre logique',
-      solution: 'Tester la navigation au clavier (Tab) et vérifier que l\'ordre est intuitif',
-      icon: faInfoCircle,
-      color: 'var(--info-color)'
+      type: 'Alerte',
+      element: 'Accesskey (1x)',
+      location: 'Liens d\'accès rapide',
+      impact: 'Faible : Attribut accesskey peut entrer en conflit avec raccourcis navigateur/lecteur d\'écran',
+      solution: 'Éviter accesskey ou documenter clairement les raccourcis utilisés',
+      icon: faExclamationTriangle,
+      color: 'var(--warning-color)'
+    },
+    {
+      type: 'Alerte',
+      element: 'Very small text (4x)',
+      location: 'Mentions légales et notes de bas de page',
+      impact: 'Moyen : Texte inférieur à 10px, difficilement lisible pour malvoyants',
+      solution: 'Augmenter la taille minimale à 12px (0.75rem) ou utiliser des unités relatives (rem)',
+      icon: faExclamationTriangle,
+      color: 'var(--warning-color)'
+    },
+    {
+      type: 'Alerte',
+      element: 'Redundant title text (10x)',
+      location: 'Liens et images diverses',
+      impact: 'Faible : Attribut title répétant le texte du lien/alt de l\'image',
+      solution: 'Supprimer les title redondants ou fournir des informations complémentaires',
+      icon: faExclamationTriangle,
+      color: 'var(--warning-color)'
     }
   ];
 
   const criticalIssues = [
     {
-      problem: 'Images sans texte alternatif',
-      count: 12,
-      correction: 'Ajouter des attributs alt descriptifs à toutes les images porteuses de sens. Pour les images décoratives, utiliser alt="".',
-      example: '<img src="mairie.jpg" alt="Façade de la mairie de Cholet" />',
-      impact: 'Les utilisateurs aveugles ou malvoyants utilisant des lecteurs d\'écran ne peuvent pas accéder au contenu visuel, ce qui rend le site partiellement inutilisable pour eux.'
+      problem: 'Champ de formulaire sans label',
+      count: 1,
+      correction: 'Ajouter une étiquette <label> visible et associée au champ de recherche, ou utiliser aria-label si label visuel non souhaité.',
+      example: '<label for="search">Rechercher</label>\n<input type="search" id="search" placeholder="Rechercher sur le site">\n\n<!-- OU avec aria-label -->\n<input type="search" aria-label="Rechercher sur le site" placeholder="Recherche...">',
+      impact: 'Les utilisateurs de lecteurs d\'écran ne savent pas à quoi sert le champ de saisie. Ils entendent seulement "champ de saisie" sans contexte, rendant le formulaire inutilisable.'
     },
     {
-      problem: 'Contrastes de couleurs insuffisants',
-      count: 8,
-      correction: 'Augmenter le contraste entre le texte et l\'arrière-plan pour atteindre au minimum 4.5:1 (niveau AA) ou 7:1 (niveau AAA).',
-      example: 'Passer de #999 sur #ddd (ratio 2.1:1) à #555 sur #fff (ratio 9.7:1)',
-      impact: 'Les personnes ayant une déficience visuelle (malvoyance, daltonisme, vision réduite) ont des difficultés à lire le texte, particulièrement dans des conditions de luminosité variables.'
+      problem: 'Boutons vides sans texte',
+      count: 3,
+      correction: 'Ajouter un aria-label descriptif à tous les boutons qui n\'ont pas de texte visible (boutons icônes, boutons menus).',
+      example: '<!-- Avant -->\n<button><span class="icon-menu"></span></button>\n\n<!-- Après -->\n<button aria-label="Ouvrir le menu de navigation">\n  <span class="icon-menu" aria-hidden="true"></span>\n</button>',
+      impact: 'Les lecteurs d\'écran annoncent "bouton" sans indiquer son rôle. Les utilisateurs aveugles ne peuvent pas comprendre la fonction du bouton et ne peuvent pas naviguer efficacement.'
     },
     {
-      problem: 'Liens et boutons sans texte',
-      count: 6,
-      correction: 'Ajouter aria-label ou aria-labelledby aux éléments interactifs qui n\'ont pas de texte visible.',
-      example: '<a href="facebook.com" aria-label="Suivez-nous sur Facebook"><i class="fa-facebook"></i></a>',
-      impact: 'Les lecteurs d\'écran annoncent uniquement "lien" sans indiquer la destination, rendant la navigation impossible pour les utilisateurs aveugles.'
+      problem: 'Menus ARIA mal configurés',
+      count: 5,
+      correction: 'Corriger l\'utilisation des attributs ARIA dans les menus : role="menu" est réservé aux menus applicatifs (type logiciel), pas aux menus de navigation web.',
+      example: '<!-- Mauvaise pratique -->\n<nav role="menu">...</nav>\n\n<!-- Bonne pratique -->\n<nav role="navigation" aria-label="Menu principal">\n  <button aria-expanded="false" aria-haspopup="true">\n    Solutions\n  </button>\n  <ul hidden>...</ul>\n</nav>',
+      impact: 'Les technologies d\'assistance interprètent mal la structure, créant une navigation confuse. Les utilisateurs de lecteurs d\'écran ne peuvent pas naviguer correctement dans les menus déroulants.'
     }
   ];
 
   const errorCount = 9;
-  const alertCount = 19;
-  const verifyCount = 0;
+  const alertCount = 20;
+  const featuresCount = 58;
+  const structuralCount = 46;
+  const ariaCount = 135;
 
   return (
     <div>
@@ -173,21 +184,39 @@ const WAVE = () => {
       <div className="section">
         <h2>Résultats de l'audit</h2>
         
-        <div className="grid grid-3" style={{ marginBottom: '2rem' }}>
+        <div className="grid grid-2" style={{ marginBottom: '2rem' }}>
           <div className="stat-card" style={{ background: 'linear-gradient(135deg, #ef4444, #dc2626)' }}>
             <FontAwesomeIcon icon={faExclamationCircle} size="2x" />
             <div className="stat-value">{errorCount}</div>
             <div className="stat-label">Erreurs détectées</div>
+            <div style={{ fontSize: '0.85rem', marginTop: '0.5rem', opacity: 0.9 }}>1 Missing form label + 3 Empty button + 5 Broken ARIA menu</div>
           </div>
           <div className="stat-card" style={{ background: 'linear-gradient(135deg, #f59e0b, #d97706)' }}>
             <FontAwesomeIcon icon={faExclamationTriangle} size="2x" />
             <div className="stat-value">{alertCount}</div>
             <div className="stat-label">Alertes</div>
+            <div style={{ fontSize: '0.85rem', marginTop: '0.5rem', opacity: 0.9 }}>Éléments nécessitant vérification manuelle</div>
+          </div>
+        </div>
+        
+        <div className="grid grid-3" style={{ marginBottom: '2rem' }}>
+          <div className="stat-card" style={{ background: 'linear-gradient(135deg, #22c55e, #16a34a)' }}>
+            <FontAwesomeIcon icon={faCheckCircle} size="2x" />
+            <div className="stat-value">{featuresCount}</div>
+            <div className="stat-label">Features</div>
+            <div style={{ fontSize: '0.85rem', marginTop: '0.5rem', opacity: 0.9 }}>Fonctionnalités d'accessibilité détectées</div>
           </div>
           <div className="stat-card" style={{ background: 'linear-gradient(135deg, #3b82f6, #2563eb)' }}>
             <FontAwesomeIcon icon={faInfoCircle} size="2x" />
-            <div className="stat-value">{verifyCount}</div>
-            <div className="stat-label">Éléments à vérifier</div>
+            <div className="stat-value">{structuralCount}</div>
+            <div className="stat-label">Structural Elements</div>
+            <div style={{ fontSize: '0.85rem', marginTop: '0.5rem', opacity: 0.9 }}>Éléments de structure sémantique</div>
+          </div>
+          <div className="stat-card" style={{ background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)' }}>
+            <FontAwesomeIcon icon={faCheckCircle} size="2x" />
+            <div className="stat-value">{ariaCount}</div>
+            <div className="stat-label">ARIA</div>
+            <div style={{ fontSize: '0.85rem', marginTop: '0.5rem', opacity: 0.9 }}>Attributs ARIA utilisés</div>
           </div>
         </div>
 
@@ -278,12 +307,29 @@ const WAVE = () => {
           Problèmes majeurs identifiés
         </h3>
         <div className="highlight-box" style={{ backgroundColor: '#fee2e2', borderColor: 'var(--error-color)' }}>
+          <h4 style={{ marginTop: 0 }}>🔴 9 Erreurs critiques :</h4>
           <ul className="list-checked">
-            <li><strong>1 champ de formulaire</strong> sans label associé</li>
-            <li><strong>3 boutons vides</strong> sans texte ni aria-label</li>
-            <li><strong>5 problèmes ARIA</strong> dans les menus de navigation</li>
-            <li><strong>19 alertes</strong> à vérifier manuellement</li>
-            <li><strong>58 fonctionnalités</strong> d'accessibilité détectées</li>
+            <li><strong>1 Missing form label</strong> - Champ de recherche sans étiquette</li>
+            <li><strong>3 Empty button</strong> - Boutons de menu sans texte accessible</li>
+            <li><strong>5 Broken ARIA menu</strong> - Attributs ARIA incorrects dans la navigation</li>
+          </ul>
+          
+          <h4>🟡 20 Alertes (top 5) :</h4>
+          <ul className="list-checked" style={{ marginBottom: 0 }}>
+            <li><strong>10 Redundant title text</strong> - Attributs title redondants</li>
+            <li><strong>4 Very small text</strong> - Texte trop petit (&lt; 10px)</li>
+            <li><strong>2 Device dependent event handler</strong> - Événements uniquement souris</li>
+            <li><strong>1 Missing fieldset</strong> - Groupe de champs sans fieldset</li>
+            <li><strong>1 Accesskey</strong> - Raccourci clavier potentiellement conflictuel</li>
+          </ul>
+        </div>
+        
+        <div className="highlight-box" style={{ backgroundColor: '#dcfce7', borderColor: 'var(--primary-color)', marginTop: '1.5rem' }}>
+          <h4 style={{ marginTop: 0, color: 'var(--primary-color)' }}>✅ Points positifs :</h4>
+          <ul style={{ marginBottom: 0 }}>
+            <li><strong>58 Features</strong> - Alternatives textuelles, labels, attributs lang détectés</li>
+            <li><strong>46 Structural Elements</strong> - Bonne structure HTML sémantique (headings, landmarks)</li>
+            <li><strong>135 ARIA</strong> - Utilisation importante d'ARIA (à vérifier/corriger)</li>
           </ul>
         </div>
 
@@ -304,46 +350,53 @@ const WAVE = () => {
           <tbody>
             <tr>
               <td><span className="badge badge-error">1</span></td>
-              <td>Ajouter alt à toutes les images</td>
-              <td>2 heures</td>
-              <td>Rédacteur + Intégrateur</td>
-              <td>Accessibilité pour non-voyants</td>
+              <td>Ajouter label au champ recherche</td>
+              <td>15 minutes</td>
+              <td>Développeur frontend</td>
+              <td>Formulaire accessible</td>
             </tr>
             <tr>
               <td><span className="badge badge-error">1</span></td>
-              <td>Corriger les contrastes insuffisants</td>
-              <td>1 heure</td>
-              <td>Designer + Intégrateur</td>
-              <td>Lisibilité pour malvoyants</td>
-            </tr>
-            <tr>
-              <td><span className="badge badge-error">1</span></td>
-              <td>Ajouter aria-label aux liens icônes</td>
+              <td>Ajouter aria-label aux 3 boutons</td>
               <td>30 minutes</td>
-              <td>Développeur</td>
-              <td>Navigation au lecteur d'écran</td>
+              <td>Développeur frontend</td>
+              <td>Navigation compréhensible</td>
+            </tr>
+            <tr>
+              <td><span className="badge badge-error">1</span></td>
+              <td>Corriger les 5 menus ARIA</td>
+              <td>2 heures</td>
+              <td>Développeur + Audit ARIA</td>
+              <td>Structure navigation correcte</td>
             </tr>
             <tr>
               <td><span className="badge badge-warning">2</span></td>
-              <td>Corriger la hiérarchie des titres</td>
-              <td>1 heure</td>
-              <td>Intégrateur</td>
-              <td>Structure logique de page</td>
+              <td>Augmenter taille texte (4 occurrences)</td>
+              <td>20 minutes</td>
+              <td>Designer + Développeur CSS</td>
+              <td>Lisibilité améliorée</td>
             </tr>
             <tr>
               <td><span className="badge badge-warning">2</span></td>
-              <td>Associer labels aux formulaires</td>
+              <td>Supprimer title redondants (10)</td>
+              <td>30 minutes</td>
+              <td>Développeur frontend</td>
+              <td>Annonces vocales épurées</td>
+            </tr>
+            <tr>
+              <td><span className="badge badge-warning">2</span></td>
+              <td>Ajouter gestion clavier (2 handlers)</td>
               <td>45 minutes</td>
-              <td>Développeur</td>
-              <td>Utilisation des formulaires</td>
+              <td>Développeur JavaScript</td>
+              <td>Navigation clavier complète</td>
             </tr>
           </tbody>
         </table>
 
         <div className="alert alert-success" style={{ marginTop: '1.5rem' }}>
           <strong>💡 Estimation :</strong> Les corrections prioritaires (P1) peuvent être réalisées en 
-          <strong> environ 3h30</strong> et résoudront les problèmes bloquants pour la majorité des utilisateurs
-          en situation de handicap.
+          <strong> environ 3 heures</strong> et résoudront les 9 erreurs critiques détectées par WAVE.
+          Les corrections P2 ajoutent <strong>1h30 supplémentaires</strong> pour un total de <strong>4h30</strong>.
         </div>
 
         <h3 style={{ marginTop: '2rem' }}>
@@ -384,125 +437,14 @@ const WAVE = () => {
       </div>
 
       <div className="section">
-        <h2>📊 Rapport de synthèse WAVE</h2>
-        
-        <div className="card" style={{ backgroundColor: '#f0f9ff', border: '2px solid var(--info-color)' }}>
-          <h3 style={{ color: 'var(--info-color)', marginTop: 0 }}>
-            📝 Synthèse de l'audit d'accessibilité WAVE - cholet.fr
-          </h3>
-          
-          <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
-            <h4 style={{ marginTop: 0 }}>🔴 Problèmes majeurs identifiés</h4>
-            <div className="grid grid-3" style={{ gap: '1rem' }}>
-              <div style={{ textAlign: 'center', padding: '1rem', backgroundColor: '#fee2e2', borderRadius: '6px' }}>
-                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--error-color)' }}>9</div>
-                <div style={{ fontSize: '0.9rem', color: '#64748b' }}>Erreurs critiques</div>
-              </div>
-              <div style={{ textAlign: 'center', padding: '1rem', backgroundColor: '#fef3c7', borderRadius: '6px' }}>
-                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--warning-color)' }}>19</div>
-                <div style={{ fontSize: '0.9rem', color: '#64748b' }}>Alertes</div>
-              </div>
-              <div style={{ textAlign: 'center', padding: '1rem', backgroundColor: '#dbeafe', borderRadius: '6px' }}>
-                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--info-color)' }}>58</div>
-                <div style={{ fontSize: '0.9rem', color: '#64748b' }}>Fonctionnalités</div>
-              </div>
-            </div>
-            
-            <div style={{ marginTop: '1rem' }}>
-              <p><strong>Top 3 des erreurs critiques :</strong></p>
-              <ol style={{ marginBottom: 0 }}>
-                <li><strong>1 champ de formulaire sans label</strong> - Impact : Critique pour lecteurs d'écran</li>
-                <li><strong>3 boutons vides</strong> - Impact : Navigation impossible sans contexte visuel</li>
-                <li><strong>5 problèmes ARIA</strong> - Impact : Menus de navigation confus</li>
-              </ol>
-            </div>
-          </div>
-
-          <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
-            <h4 style={{ marginTop: 0 }}>✅ Corrections prioritaires</h4>
-            <table style={{ width: '100%', fontSize: '0.9rem' }}>
-              <thead>
-                <tr style={{ backgroundColor: '#f9fafb' }}>
-                  <th style={{ textAlign: 'left', padding: '0.5rem' }}>Priorité</th>
-                  <th style={{ textAlign: 'left', padding: '0.5rem' }}>Problème</th>
-                  <th style={{ textAlign: 'left', padding: '0.5rem' }}>Solution</th>
-                  <th style={{ textAlign: 'center', padding: '0.5rem' }}>Temps</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style={{ padding: '0.5rem' }}><span className="badge badge-error">P1</span></td>
-                  <td style={{ padding: '0.5rem' }}>Champ formulaire sans label</td>
-                  <td style={{ padding: '0.5rem' }}>Ajouter &lt;label for="search"&gt;</td>
-                  <td style={{ textAlign: 'center', padding: '0.5rem' }}>15 min</td>
-                </tr>
-                <tr style={{ backgroundColor: '#f9fafb' }}>
-                  <td style={{ padding: '0.5rem' }}><span className="badge badge-error">P1</span></td>
-                  <td style={{ padding: '0.5rem' }}>Boutons vides (3)</td>
-                  <td style={{ padding: '0.5rem' }}>Ajouter aria-label descriptifs</td>
-                  <td style={{ textAlign: 'center', padding: '0.5rem' }}>30 min</td>
-                </tr>
-                <tr>
-                  <td style={{ padding: '0.5rem' }}><span className="badge badge-warning">P2</span></td>
-                  <td style={{ padding: '0.5rem' }}>Menus ARIA défectueux (5)</td>
-                  <td style={{ padding: '0.5rem' }}>Corriger rôles et états ARIA</td>
-                  <td style={{ textAlign: 'center', padding: '0.5rem' }}>2h</td>
-                </tr>
-                <tr style={{ backgroundColor: '#f9fafb' }}>
-                  <td style={{ padding: '0.5rem' }}><span className="badge badge-warning">P2</span></td>
-                  <td style={{ padding: '0.5rem' }}>Texte très petit (1)</td>
-                  <td style={{ padding: '0.5rem' }}>Augmenter taille à 12px min</td>
-                  <td style={{ textAlign: 'center', padding: '0.5rem' }}>10 min</td>
-                </tr>
-              </tbody>
-            </table>
-            <p style={{ marginTop: '1rem', marginBottom: 0, fontSize: '0.85rem', color: '#64748b' }}>
-              <strong>Temps total estimé :</strong> 3 heures pour corriger toutes les erreurs critiques
-            </p>
-          </div>
-
-          <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
-            <h4 style={{ marginTop: 0 }}>⚠️ Limites de l'outil WAVE</h4>
-            <ul style={{ marginBottom: 0, fontSize: '0.9rem' }}>
-              <li><strong>Détection automatique uniquement</strong> : ~70% des problèmes détectés, 30% nécessitent un audit manuel</li>
-              <li><strong>Pas de test utilisateur</strong> : Ne remplace pas les tests avec personnes en situation de handicap</li>
-              <li><strong>Analyse d'une page à la fois</strong> : Nécessite de tester plusieurs pages représentatives</li>
-              <li><strong>Contexte manquant</strong> : Certaines alertes peuvent être des faux positifs selon le contexte</li>
-            </ul>
-          </div>
-
-          <div style={{ backgroundColor: '#dcfce7', padding: '1rem', borderRadius: '8px', marginTop: '1rem', border: '1px solid var(--primary-color)' }}>
-            <h4 style={{ marginTop: 0, color: 'var(--primary-color)' }}>🎯 Recommandation finale</h4>
-            <p style={{ marginBottom: 0 }}>
-              Corriger en priorité les <strong>9 erreurs critiques</strong> identifiées par WAVE (temps estimé : 3h).
-              Puis, réaliser un <strong>audit RGAA complet</strong> pour évaluer la conformité selon le référentiel officiel
-              et tester manuellement avec un lecteur d'écran (NVDA ou JAWS). Objectif : atteindre <strong>100% de conformité
-              niveau AA</strong> d'ici 3 mois.
-            </p>
-          </div>
-        </div>
-
-        <div className="alert alert-info" style={{ marginTop: '1.5rem' }}>
-          <h4 style={{ marginTop: 0 }}>📸 Captures d'écran annotées</h4>
-          <p><strong>Note :</strong> Dans un contexte réel, vous ajouteriez ici des captures d'écran de WAVE montrant :</p>
-          <ul style={{ marginBottom: 0 }}>
-            <li>La vue d'ensemble des erreurs détectées (icônes rouges/orange/vertes)</li>
-            <li>Le détail d'une erreur critique avec explication contextuelle</li>
-            <li>Les recommandations de correction pour chaque type d'erreur</li>
-            <li>La comparaison avant/après correction</li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="section">
         <h2>Recommandations pour aller plus loin</h2>
         
         <div className="highlight-box">
           <h3 style={{ marginTop: 0 }}>🎯 Plan d'action accessibilité</h3>
           <ol style={{ lineHeight: '2' }}>
-            <li><strong>Corriger les erreurs WAVE</strong> : Commencer par les 12 images + 8 contrastes + 6 liens (priorité 1)</li>
+            <li><strong>Corriger les erreurs WAVE</strong> : Commencer par le champ formulaire + 3 boutons + 5 menus ARIA (priorité 1)</li>
             <li><strong>Former l'équipe</strong> : Sensibiliser développeurs et rédacteurs aux bonnes pratiques</li>
-            <li><strong>Tester manuellement</strong> : Navigation au clavier, test avec lecteur d'écran (NVDA, JAWS)</li>
+            <li><strong>Tester manuellement</strong> : Navigation au clavier, test avec lecteur d'écran</li>
             <li><strong>Auditer avec RGAA</strong> : Évaluation complète selon le référentiel officiel</li>
             <li><strong>Impliquer les utilisateurs</strong> : Tests utilisateurs avec personnes en situation de handicap</li>
             <li><strong>Documenter</strong> : Créer un guide d'accessibilité interne pour l'équipe</li>
@@ -517,7 +459,6 @@ const WAVE = () => {
               <li><a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">Documentation WAVE</a></li>
               <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG Quick Reference</a></li>
               <li><a href="https://accessibilite.numerique.gouv.fr/" target="_blank" rel="noopener noreferrer">RGAA - Référentiel officiel</a></li>
-              <li><a href="https://www.nvaccess.org/" target="_blank" rel="noopener noreferrer">NVDA - Lecteur d'écran gratuit</a></li>
             </ul>
           </div>
 

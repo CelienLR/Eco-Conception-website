@@ -21,19 +21,19 @@ const RGAA = () => {
       theme: 'Images',
       criterion: '1.1 - Chaque image porteuse d\'information a-t-elle une alternative textuelle ?',
       level: 'A',
-      compliant: 'Non conforme',
-      evidence: '12 images sans attribut alt sur la page d\'accueil. Images du carrousel et de la galerie événements concernées.',
-      tools: 'WAVE, Inspection manuelle du code HTML',
-      badge: 'error'
+      compliant: 'Conforme',
+      evidence: 'Test Accessibility Checker : "Ensure <img> elements have alternative text or a role of none or presentation" - Passed Audit. 23 images avec alt null/empty (décoratives) + 25 images avec alt descriptif = conformité.',
+      tools: 'WAVE (58 Features : 1 Alternative text, 23 Null or empty alt, 25 Linked images with alt), Accessibility Checker',
+      badge: 'success'
     },
     {
       theme: 'Couleurs',
       criterion: '3.2 - Le contraste entre la couleur du texte et la couleur de son arrière-plan est-il suffisant (4.5:1) ?',
       level: 'AA',
-      compliant: 'Non conforme',
-      evidence: 'Plusieurs zones avec contraste insuffisant : footer (ratio 2.1:1), boutons secondaires (ratio 3.2:1), texte gris sur fond clair.',
-      tools: 'Colour Contrast Analyser, WAVE',
-      badge: 'error'
+      compliant: 'Conforme',
+      evidence: 'Test Accessibility Checker : "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds" - Passed Audit. Tous les contrastes respectent le ratio minimum 4.5:1.',
+      tools: 'Accessibility Checker, Colour Contrast Analyser',
+      badge: 'success'
     },
     {
       theme: 'Navigation',
@@ -57,83 +57,89 @@ const RGAA = () => {
       theme: 'Structure',
       criterion: '9.1 - L\'information est-elle structurée par l\'utilisation appropriée de titres (h1-h6) ?',
       level: 'A',
-      compliant: 'Non conforme',
-      evidence: 'Hiérarchie des titres incohérente : sauts de niveaux (h2 vers h4), plusieurs h1 sur certaines pages.',
-      tools: 'HeadingsMap, WAVE',
-      badge: 'error'
+      compliant: 'Conforme',
+      evidence: 'Test Accessibility Checker : "Ensure the order of headings is semantically correct" - Passed Audit. WAVE détecte : 1 H1, 11 H2, 1 H3. Hiérarchie respectée.',
+      tools: 'WAVE (46 Structural Elements), Accessibility Checker, HeadingsMap',
+      badge: 'success'
     }
   ];
 
   const leastCompliant = [
     {
-      criterion: '1.1 - Images sans alternative textuelle',
-      technicalSolution: 'Ajouter un attribut alt descriptif à toutes les images porteuses d\'information',
-      actors: 'Rédacteur web (rédaction des alt), Développeur (intégration)',
+      criterion: '11.1 - Champ de formulaire sans label',
+      technicalSolution: 'Ajouter une étiquette <label> visible associée au champ de recherche avec l\'attribut for',
+      actors: 'Développeur frontend',
       codeExample: `<!-- Avant -->
-<img src="evenement-cholet.jpg">
+<input type="search" placeholder="Rechercher">
 
 <!-- Après -->
-<img src="evenement-cholet.jpg" alt="Marché de Noël de Cholet - Place de la République - 15-25 décembre">`
-    },
-    {
-      criterion: '3.2 - Contrastes de couleurs insuffisants',
-      technicalSolution: 'Modifier les couleurs pour atteindre un ratio minimum de 4.5:1 (AA) ou 7:1 (AAA)',
-      actors: 'Designer (choix des couleurs), Développeur frontend (intégration CSS)',
-      codeExample: `/* Avant - Contraste 2.1:1 */
-.footer-link {
-  color: #999;
-  background: #ddd;
-}
+<label for="search-input">Rechercher sur le site</label>
+<input type="search" id="search-input" placeholder="Rechercher...">
 
-/* Après - Contraste 9.7:1 */
-.footer-link {
-  color: #333;
-  background: #fff;
-}`
+<!-- Alternative avec aria-label -->
+<input type="search" aria-label="Rechercher sur le site" placeholder="Rechercher...">`
     },
     {
-      criterion: '9.1 - Structure de titres incorrecte',
-      technicalSolution: 'Respecter la hiérarchie h1 > h2 > h3 sans sauter de niveau. Un seul h1 par page.',
-      actors: 'Développeur frontend, Intégrateur',
+      criterion: '7.1 - Boutons sans texte accessible',
+      technicalSolution: 'Ajouter aria-label aux boutons qui n\'ont que des icônes, sans texte visible',
+      actors: 'Développeur frontend',
       codeExample: `<!-- Avant -->
-<h1>Accueil</h1>
-<h2>Actualités</h2>
-<h4>Dernier événement</h4> ❌
+<button class="menu-toggle">
+  <span class="icon-menu"></span>
+</button>
 
 <!-- Après -->
-<h1>Accueil</h1>
-<h2>Actualités</h2>
-<h3>Dernier événement</h3> ✅`
+<button class="menu-toggle" aria-label="Ouvrir le menu de navigation">
+  <span class="icon-menu" aria-hidden="true"></span>
+</button>`
+    },
+    {
+      criterion: '12.6 - Mauvaise utilisation des attributs ARIA',
+      technicalSolution: 'Corriger les rôles ARIA : role="menu" est réservé aux menus applicatifs, utiliser role="navigation" pour les menus de navigation web',
+      actors: 'Développeur frontend, Architecte accessibilité',
+      codeExample: `<!-- Avant (incorrect) -->
+<nav role="menu">
+  <ul>
+    <li><a href="#">Accueil</a></li>
+  </ul>
+</nav>
+
+<!-- Après (correct) -->
+<nav role="navigation" aria-label="Menu principal">
+  <ul>
+    <li><a href="#">Accueil</a></li>
+  </ul>
+</nav>`
     }
   ];
 
   const actionPlan = [
     {
       priority: 1,
-      criterion: 'Images (1.1)',
-      action: 'Audit complet + ajout des alt manquants',
-      effort: 'Faible',
+      criterion: 'Formulaires (11.1)',
+      action: 'Ajout label au champ recherche',
+      effort: 'Très faible',
       impact: 'Critique',
-      timeline: '1 semaine',
-      cost: '2 jours/homme'
+      timeline: '1 jour',
+      cost: '0.25 jour/homme'
     },
     {
       priority: 1,
-      criterion: 'Contrastes (3.2)',
-      action: 'Analyse + modification CSS',
-      effort: 'Faible',
+      criterion: 'Boutons (7.1)',
+      action: 'Ajout aria-label aux 3 boutons',
+      effort: 'Très faible',
       impact: 'Critique',
-      timeline: '3 jours',
-      cost: '1 jour/homme'
+      timeline: '1 jour',
+      cost: '0.5 jour/homme'
     },
     {
-      priority: 2,
-      criterion: 'Structure titres (9.1)',
-      action: 'Refonte hiérarchie HTML',
+      priority: 1,
+      criterion: 'Menus ARIA (12.6)',
+      action: 'Correction des 5 menus ARIA',
       effort: 'Moyen',
-      impact: 'Important',
-      timeline: '1 semaine',
-      cost: '2 jours/homme'
+      impact: 'Critique',
+      timeline: '3 jours',
+      cost: '1.5 jours/homme'
     },
     {
       priority: 2,
